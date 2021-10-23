@@ -187,4 +187,17 @@ function addClipboardListItem(text) {
     });
 }
 
+document.getElementById("button").addEventListener("click", toggleTheme);
+
+function toggleTheme() {
+    console.log("Hello");
+    var theme = document.getElementById('theme');
+    if (theme.getAttribute('href') == 'light.css') {
+        theme.setAttribute('href', 'dark.css');
+    } else {
+        theme.setAttribute('href', 'light.css');
+    }
+}
+
 getClipboardText();
+darkModeListener();
