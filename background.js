@@ -60,27 +60,28 @@ window.addEventListener('mouseover',function(){
 })
 */
 
+/* From https://stackoverflow.com/questions/22702446/how-to-get-clipboard-data-in-chrome-extension
+ and https://github.com/jeske/BBCodePaste/blob/master/bbcodepaste.js
+ Creates a mock page to paste clipboard content and get it
+*/
 function getContentFromClipboard() {
     bg = chrome.extension.getBackgroundPage();        // get the background page
     bg.document.body.innerHTML= "";                   // clear the background page
 
     // add a DIV, contentEditable=true, to accept the paste action
-    var helperdiv = bg.document.createElement("div");
-    document.body.appendChild(helperdiv);
-    helperdiv.contentEditable = true;
+    helper = bg.document.createElement("textarea");
+    helper.style.position = "absolute";
+    helper.style.border = "none";
+    document.body.appendChild(helper);
 
     // focus the helper div's content
-    var range = document.createRange();
-    range.selectNode(helperdiv);
-    window.getSelection().removeAllRanges();
-    window.getSelection().addRange(range);
-    helperdiv.focus();    
+    helper.select();
 
     // trigger the paste action
     bg.document.execCommand("Paste");
 
     // read the clipboard contents from the helperdiv
-    var result = helperdiv.innerHTML;
+    var result = helper.value;
     return result;
 }
 
