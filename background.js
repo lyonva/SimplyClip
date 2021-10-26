@@ -24,15 +24,13 @@ SOFTWARE.
 let _previousData="";
 let _maxListSize = 100;
 let time_interval_set = undefined;
-const readClipboardText = ()=>{
-    navigator.clipboard.readText()
-    .then(clipboardText=>{
-        if(clipboardText.length>0 && clipboardText!==_previousData){
-			setClipboardText(clipboardText);
-            _previousData = clipboardText
-        }
-    })
-    .catch(err=>console.log(err))
+
+function readClipboardText(clipboardText) {
+    console.log(clipboardText)
+    if(clipboardText.length>0 && clipboardText!==_previousData){
+        setClipboardText(clipboardText);
+        _previousData = clipboardText
+    }
 }
 
 
@@ -51,6 +49,7 @@ const setClipboardText = async (clipText)=>{
     })
 }
 
+/*
 window.addEventListener('mouseout',function(){
     if(time_interval_set===undefined)
         time_interval_set = setInterval(readClipboardText,2000)
@@ -59,9 +58,45 @@ window.addEventListener('mouseover',function(){
     clearInterval(time_interval_set);
     time_interval_set=undefined;
 })
-window.addEventListener('copy',function(){
-    readClipboardText();
+*/
+
+/* From https://stackoverflow.com/questions/22702446/how-to-get-clipboard-data-in-chrome-extension
+ and https://github.com/jeske/BBCodePaste/blob/master/bbcodepaste.js
+ Creates a mock page to paste clipboard content and get it
+*/
+function getContentFromClipboard() {
+    bg = chrome.extension.getBackgroundPage();        // get the background page
+    bg.document.body.innerHTML= "";                   // clear the background page
+
+    // add a DIV, contentEditable=true, to accept the paste action
+    helper = bg.document.createElement("textarea");
+    helper.style.position = "absolute";
+    helper.style.border = "none";
+    document.body.appendChild(helper);
+
+    // focus the helper div's content
+    helper.select();
+
+    // trigger the paste action
+    bg.document.execCommand("Paste");
+
+    // read the clipboard contents from the helperdiv
+    var result = helper.value;
+    return result;
+}
+
+
+chrome.runtime.onInstalled.addListener(function() {
+    console.log("Clip installed")
 })
+
+chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
+    if (request.event == "copy") {
+        readClipboardText( getContentFromClipboard() );
+    }
+});
+
+/*
 document.addEventListener('visibilitychange',function(){
     if(document.hidden){
         clearInterval(time_interval_set);
@@ -71,3 +106,4 @@ document.addEventListener('visibilitychange',function(){
         time_interval_set = setInterval(readClipboardText,2000);
     }
 })
+*/
