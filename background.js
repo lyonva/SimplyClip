@@ -97,9 +97,14 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
 });
 
 chrome.contextMenus.create({
-    title: "Search: %s", 
-    contexts:["selection"], 
-    id: "1",
+    title: "test", 
+    contexts:["all"], 
+  });
+
+  chrome.contextMenus.onClicked.addListener(function(request, sender, sendResponse) {
+    if (request.event == "copy") {
+        readClipboardText( getContentFromClipboard() );
+    }
   });
 
 /*
