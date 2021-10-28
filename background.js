@@ -96,6 +96,12 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
     }
 });
 
+chrome.contextMenus.create({
+    title: "Search: %s", 
+    contexts:["selection"], 
+    id: "1",
+  });
+
 /*
 document.addEventListener('visibilitychange',function(){
     if(document.hidden){
