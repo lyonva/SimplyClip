@@ -28,7 +28,7 @@ let time_interval_set = undefined;
 function readClipboardText(clipboardText) {
     console.log(clipboardText)
     if(clipboardText.length>0 && clipboardText!==_previousData){
-        setClipboardText(clipboardText);
+        addClipboardList(clipboardText);
         _previousData = clipboardText
     }
 }
