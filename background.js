@@ -34,7 +34,7 @@ function readClipboardText(clipboardText) {
 }
 
 
-const setClipboardText = async (clipText)=>{
+const addClipboardList = async (clipText)=>{
     chrome.storage.sync.get("list",function(clipboard){
         let {list} = clipboard;
         console.log("List is:-", list);
