@@ -241,5 +241,17 @@ function getTheme() {
     });
 }
 
+document.getElementById("savebutton").addEventListener("click", saveClipboardList);
+
+// Saves clipboard list as a csv file
+function saveClipboardList() {
+    chrome.storage.sync.get(['list'], clipboard => {
+        let list = clipboard.list;
+        for (i = 0; i < list.length; i++){
+            return;
+        }
+    });
+}
+
 getClipboardText();
 getTheme();
