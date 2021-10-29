@@ -28,13 +28,13 @@ let time_interval_set = undefined;
 function readClipboardText(clipboardText) {
     console.log(clipboardText)
     if(clipboardText.length>0 && clipboardText!==_previousData){
-        setClipboardText(clipboardText);
+        addClipboardList(clipboardText);
         _previousData = clipboardText
     }
 }
 
 
-const setClipboardText = async (clipText)=>{
+const addClipboardList = async (clipText)=>{
     chrome.storage.sync.get("list",function(clipboard){
         let {list} = clipboard;
         console.log("List is:-", list);

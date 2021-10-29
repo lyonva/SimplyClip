@@ -221,9 +221,7 @@ sb.addEventListener('keyup', (event)=>{
             getClipboardText();
     }
 
-    // flag = search_str.length();
-    //alert(search_str)
-    //getClipboardText();
+  
 })
 
 
@@ -242,6 +240,59 @@ clear_all_btn.addEventListener('click', (event) => {
 
 
 
+document.getElementById("button").addEventListener("click", toggleTheme);
+
+function toggleTheme() {
+    var theme = document.getElementById('theme');
+    chrome.storage.sync.get(['themetoggle'], function (result) {
+        console.log(result.themetoggle);
+        if (result.themetoggle == 0) {
+            result.themetoggle = 1;
+            theme.setAttribute('href', 'dark.css');
+        }
+        else {
+            result.themetoggle = 0;
+        }
+        if (result.themetoggle == 0) {
+            theme.setAttribute('href', 'light.css');
+        }
+        else {
+            theme.setAttribute('href', 'dark.css');
+        }
+        chrome.storage.sync.set({ themetoggle: result.themetoggle }, function () {
+            if (result.themetoggle == 0) {
+                console.log("Using light mode");
+            }
+            else if (result.themetoggle == 1) {
+                console.log("Using dark mode");
+            }
+        });
+    });
+}
+
+function getTheme() {
+    var theme = document.getElementById('theme');
+    var button = document.getElementById('button');
+    chrome.storage.sync.get(['themetoggle'], function (result) {
+        console.log(result.themetoggle);
+        if (result.themetoggle === undefined) {
+            theme.setAttribute('href', 'light.css');
+            button.checked = false;
+            result.themetoggle = 0;
+        }
+        else if (result.themetoggle == 0) {
+            theme.setAttribute('href', 'light.css');
+            button.checked = false;
+        }
+        else {
+            theme.setAttribute('href', 'dark.css');
+            button.checked = true;
+        }
+        chrome.storage.sync.set({ themetoggle: result.themetoggle }, function () {
+            console.log("Loaded plugin theme");
+        });
+    });
+}
 
 getClipboardText();
-
+getTheme();
