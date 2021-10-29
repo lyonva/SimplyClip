@@ -65,6 +65,7 @@ window.addEventListener('mouseover',function(){
  Creates a mock page to paste clipboard content and get it
 */
 function getContentFromClipboard() {
+    
     bg = chrome.extension.getBackgroundPage();        // get the background page
     bg.document.body.innerHTML= "";                   // clear the background page
 
@@ -86,6 +87,25 @@ function getContentFromClipboard() {
 }
 
 
+function getHTMLContent() {
+    bg = chrome.extension.getBackgroundPage();        // get the background page
+    bg.document.body.innerHTML= "";                   // clear the background page
+
+    var helperdiv = bg.document.createElement("div");
+    document.body.appendChild(helperdiv);
+    helperdiv.contentEditable = true;
+
+    helperdiv.innerHTML=""; // clear the buffer    
+    var range = document.createRange();
+    range.selectNode(helperdiv);
+    window.getSelection().removeAllRanges();
+    window.getSelection().addRange(range);
+    helperdiv.focus();    
+    bg.document.execCommand("Paste");
+    console.log("innerHTML = " + helperdiv.innerHTML);
+    // helperdiv.
+}
+
 chrome.runtime.onInstalled.addListener(function() {
     console.log("Clip installed")
 })
@@ -96,16 +116,20 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
     }
 });
 
+// Create context menu to copy links 
 chrome.contextMenus.create({
-    title: "test", 
-    contexts:["all"], 
+    "id": "copyLink",   // id for menu
+    "title": "Copy link to SimplyClip", // title for menu 
+    "contexts":["link"], 
   });
 
-  chrome.contextMenus.onClicked.addListener(function(request, sender, sendResponse) {
-    if (request.event == "copy") {
-        readClipboardText( getContentFromClipboard() );
+// push link to list on click
+chrome.contextMenus.onClicked.addListener((clickData) => {
+    if(clickData.menuItemId == "copyLink") {
+        readClipboardText(clickData.linkUrl);
+    // console.log(clickData.linkUrl)
     }
-  });
+});
 
 /*
 document.addEventListener('visibilitychange',function(){
