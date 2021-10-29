@@ -195,6 +195,7 @@ function toggleTheme() {
         console.log(result.themetoggle);
         if (result.themetoggle == 0) {
             result.themetoggle = 1;
+            theme.setAttribute('href', 'dark.css');
         }
         else {
             result.themetoggle = 0;
@@ -224,6 +225,7 @@ function getTheme() {
         if (result.themetoggle === undefined) {
             theme.setAttribute('href', 'light.css');
             button.checked = false;
+            result.themetoggle = 0;
         }
         else if (result.themetoggle == 0) {
             theme.setAttribute('href', 'light.css');
