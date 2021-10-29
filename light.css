@@ -21,6 +21,11 @@ p{
   border-color: #2196F3;
   border-radius: 5px;
   box-shadow: 0 0 7px 2px #90e3ff;
+  transition: 1s;
+}
+
+#savebutton:hover {
+  box-shadow: 0 0 12px 6px #90e3ff;
 }
 
 #empty-div{
