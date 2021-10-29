@@ -21,6 +21,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
+
 let _clipboardList = document.querySelector("#clipboard_list");
 function getClipboardText() {
     chrome.storage.sync.get(['list'], clipboard => {
@@ -245,12 +246,36 @@ document.getElementById("savebutton").addEventListener("click", saveClipboardLis
 
 // Saves clipboard list as a csv file
 function saveClipboardList() {
+    var today = new Date();
+    var date = today.getFullYear() + '-' + (today.getMonth()+1) + '-' + today.getDate();
+    var time = today.getHours().toString() + today.getMinutes().toString() + today.getSeconds().toString();
+    var dateTime = date + ' ' + time;
     chrome.storage.sync.get(['list'], clipboard => {
         let list = clipboard.list;
+        let result = "";
         for (i = 0; i < list.length; i++){
-            return;
+            result += list[i] + ",\n";
         }
+        download("Clipboard " + dateTime + ".csv", result);
     });
+}
+
+/* Function that allows all text in clipboard to be saved as a csv file
+Credit goes to DevonTaig - https://stackoverflow.com/users/1069916/devontaig
+*/
+function download(filename, text) {
+    var pom = document.createElement('a');
+    pom.setAttribute('href', 'data:text/plain;charset=utf-8,' +
+
+    encodeURIComponent(text));
+    pom.setAttribute('download', filename);
+
+    pom.style.display = 'none';
+    document.body.appendChild(pom);
+
+    pom.click();
+
+    document.body.removeChild(pom);
 }
 
 getClipboardText();
