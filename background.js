@@ -33,7 +33,6 @@ function readClipboardText(clipboardText) {
     }
 }
 
-
 const addClipboardList = async (clipText)=>{
     chrome.storage.sync.get("list",function(clipboard){
         let {list} = clipboard;
@@ -86,25 +85,6 @@ function getContentFromClipboard() {
     return result;
 }
 
-
-function getHTMLContent() {
-    bg = chrome.extension.getBackgroundPage();        // get the background page
-    bg.document.body.innerHTML= "";                   // clear the background page
-
-    var helperdiv = bg.document.createElement("div");
-    document.body.appendChild(helperdiv);
-    helperdiv.contentEditable = true;
-
-    helperdiv.innerHTML=""; // clear the buffer    
-    var range = document.createRange();
-    range.selectNode(helperdiv);
-    window.getSelection().removeAllRanges();
-    window.getSelection().addRange(range);
-    helperdiv.focus();    
-    bg.document.execCommand("Paste");
-    console.log("innerHTML = " + helperdiv.innerHTML);
-    // helperdiv.
-}
 
 chrome.runtime.onInstalled.addListener(function() {
     console.log("Clip installed")
