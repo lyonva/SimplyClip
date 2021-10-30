@@ -97,30 +97,30 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
 });
 
 // From https://arndom.hashnode.dev/how-to-add-a-context-menu-to-your-chrome-extension-in-react
-var contextMenuItem ={
+chrome.contextMenus.create({
     "id": "copyImageClippy",
-    "title": "Copy Image to SimplyClip", /* what appears in the menu */
+    "title": "Copy image to SimplyClip", /* what appears in the menu */
     "contexts": ['image']  /* to make this appear only when user selects something on page */
-}
+});
 
-chrome.contextMenus.create(contextMenuItem);
+// Create context menu to copy links 
+chrome.contextMenus.create({
+    "id": "copyLink",   // id for menu
+    "title": "Copy link to SimplyClip", // title for menu 
+    "contexts":["link"],
+  });
 
 // push link or image to list on click
 chrome.contextMenus.onClicked.addListener( (clickData) => {
     if(clickData.menuItemId == "copyImageClippy"){
-        console.log( clickData.srcUrl )
+        readClipboardText( clickData.srcUrl )
     }
     else if(clickData.menuItemId == "copyLink") {
         readClipboardText(clickData.linkUrl);
     // console.log(clickData.linkUrl)
     }
 })
-// Create context menu to copy links 
-chrome.contextMenus.create({
-    "id": "copyLink",   // id for menu
-    "title": "Copy link to SimplyClip", // title for menu 
-    "contexts":["link"], 
-  });
+
 
 
 /*
