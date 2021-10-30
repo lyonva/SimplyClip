@@ -260,9 +260,8 @@ function saveClipboardList() {
     });
 }
 
-/* Function that allows all text in clipboard to be saved as a csv file
-Credit goes to DevonTaig - https://stackoverflow.com/users/1069916/devontaig
-*/
+// Function that allows all text in clipboard to be saved as a csv file
+// Credit goes to DevonTaig - https://stackoverflow.com/users/1069916/devontaig
 function download(filename, text) {
     var pom = document.createElement('a');
     pom.setAttribute('href', 'data:text/plain;charset=utf-8,' +
