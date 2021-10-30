@@ -41,6 +41,7 @@ function getClipboardText() {
                 list.forEach(item => {
                     console.log(item);
                     addClipboardListItem(item)})}
+                    //searching the text from search bar in clipboard
             else if (typeof list !== undefined && _flag == 1) {list.forEach(item => {
                         if (item.toLowerCase().includes(search_str)){
                             console.log(item);
@@ -202,11 +203,10 @@ function addClipboardListItem(text) {
     });
 }
 
-
+// Reading the search string
 let sb= document.getElementById('searchbar');
 sb.addEventListener('keyup', (event)=>{
-    let searchvalue = document.getElementById('searchbar').value;
-    searchvalue=searchvalue.toLowerCase();
+    let searchvalue = document.getElementById('searchbar').value.toLowerCase();
     search_str = searchvalue;
     if (!search_str == ""){
         _flag = 1;
@@ -225,7 +225,7 @@ sb.addEventListener('keyup', (event)=>{
 })
 
 
-
+// Clears all the elements in clipboard
 let clear_all_btn = document.getElementById('clear_all_btn')
 
 clear_all_btn.addEventListener('click', (event) => {
