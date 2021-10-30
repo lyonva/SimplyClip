@@ -254,7 +254,7 @@ function saveClipboardList() {
         let list = clipboard.list;
         let result = "";
         for (i = 0; i < list.length; i++){
-            result += list[i] + ",\n";
+            result += "\"" + list[i] + "\",\n";
         }
         download("Clipboard " + dateTime + ".csv", result);
     });
