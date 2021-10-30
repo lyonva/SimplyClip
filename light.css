@@ -11,6 +11,23 @@ p{
     margin-bottom: 0;
 }
 
+#savebutton {
+  margin: 0;
+  position: relative;
+  left: 50%;
+  -ms-transform: translate(-50%);
+  transform: translate(-50%);
+  border-width: 1px;
+  border-color: #2196F3;
+  border-radius: 5px;
+  box-shadow: 0 0 7px 2px #90e3ff;
+  transition: 1s;
+}
+
+#savebutton:hover {
+  box-shadow: 0 0 12px 6px #90e3ff;
+}
+
 #empty-div{
     background:white
 
