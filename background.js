@@ -27,7 +27,7 @@ let time_interval_set = undefined;
 
 function readClipboardText(clipboardText) {
     console.log(clipboardText)
-    if((clipboardText.length>0 || clipboardText.size > 0) && clipboardText!==_previousData){
+    if(clipboardText.length>0 && clipboardText!==_previousData){
         addClipboardList(clipboardText);
         _previousData = clipboardText
     }
@@ -90,8 +90,12 @@ function setImageFromLink( url ) {
     .then(response => response.blob())
     .then(imageBlob => {
         // Then create a local URL for that image and print it 
-        console.log(imageBlob);
-        readClipboardText(imageBlob);
+        var reader = new FileReader();
+        reader.readAsDataURL(imageBlob); 
+        reader.onloadend = function() {
+            var base64data = reader.result;                
+            readClipboardText(base64data);
+        }
     });
 
 } 
@@ -123,7 +127,7 @@ chrome.contextMenus.create({
 // push link or image to list on click
 chrome.contextMenus.onClicked.addListener( (clickData) => {
     if(clickData.menuItemId == "copyImageClippy"){
-        setImageFromLink( clickData.srcUrl );
+        readClipboardText( clickData.srcUrl );
     }
     else if(clickData.menuItemId == "copyLink") {
         readClipboardText(clickData.linkUrl);
