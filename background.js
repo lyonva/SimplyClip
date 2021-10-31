@@ -85,6 +85,16 @@ function getContentFromClipboard() {
     return result;
 }
 
+function setImageFromLink( url ) {
+    fetch( url )
+    .then(response => response.blob())
+    .then(imageBlob => {
+        // Then create a local URL for that image and print it 
+        console.log(imageBlob);
+        readClipboardText(imageBlob);
+    });
+
+} 
 
 chrome.runtime.onInstalled.addListener(function() {
     console.log("Clip installed")
@@ -113,7 +123,7 @@ chrome.contextMenus.create({
 // push link or image to list on click
 chrome.contextMenus.onClicked.addListener( (clickData) => {
     if(clickData.menuItemId == "copyImageClippy"){
-        readClipboardText( clickData.srcUrl )
+        setImageFromLink( clickData.srcUrl );
     }
     else if(clickData.menuItemId == "copyLink") {
         readClipboardText(clickData.linkUrl);
