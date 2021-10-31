@@ -23,6 +23,9 @@ SOFTWARE.
 */
 
 let _clipboardList = document.querySelector("#clipboard_list");
+
+// Finds all the items in the clipboard Chrome storage and adds them
+// to the list that will be displayed on the UI
 function getClipboardText() {
     chrome.storage.sync.get(['list'], clipboard => {
         let list = clipboard.list;
@@ -41,7 +44,10 @@ function getClipboardText() {
     });
 }
 
+// Displays thumbnail for web links in clipboard
 function getThumbnail(textContent) {
+
+    // Displays thumbnail if URL is a YouTube video
     let ind = textContent.indexOf('https://www.youtube.com/');
     if (ind === 0) {
         let videoId = "";
@@ -58,6 +64,7 @@ function getThumbnail(textContent) {
             isVideo: true,
         };
     }
+    // Displays thumbnail for all other URL links in the clipboard
     else {
         let ind = textContent.indexOf('http');
         if (ind === 0) {
@@ -76,8 +83,12 @@ function getThumbnail(textContent) {
     }
         ;
 }
+
+// Adds copied items to UI
 function addClipboardListItem(text) {
     let { sourceUrl, imageUrl, isVideo } = getThumbnail(text);
+
+    // Creates HTML elements for each item in the clipboard list
     let listItem = document.createElement("li"),
         listDiv = document.createElement("div"),
         deleteDiv = document.createElement("div"),
@@ -148,6 +159,8 @@ function addClipboardListItem(text) {
     listItem.appendChild(contentDiv);
 
     _clipboardList.appendChild(listItem);
+
+    // Event listener that allows for copied text to be edited
     editImage.addEventListener('click', (event) => {
         console.log("Edit button clicked");
         prevText = listPara.textContent;
@@ -155,6 +168,8 @@ function addClipboardListItem(text) {
         listPara.setAttribute("contenteditable", "true");
         listPara.focus();
     })
+
+    // Event listener that allows for item to be deleted from clipboard UI list
     deleteImage.addEventListener('click', (event) => {
         console.log("Delete clicked");
         chrome.storage.sync.get(['list'], clipboard => {
@@ -166,6 +181,7 @@ function addClipboardListItem(text) {
         })
     })
 
+    // Event listener that allows text to be copied when it is clicked on UI
     listDiv.addEventListener('click', (event) => {
         let { textContent } = event.target;
         navigator.clipboard.writeText(textContent)
@@ -188,8 +204,10 @@ function addClipboardListItem(text) {
     });
 }
 
+// Adds event listener to dark mode toggle button
 document.getElementById("button").addEventListener("click", toggleTheme);
 
+// If the user toggles the theme, the theme becomes the opposite
 function toggleTheme() {
     var theme = document.getElementById('theme');
     chrome.storage.sync.get(['themetoggle'], function (result) {
@@ -218,6 +236,7 @@ function toggleTheme() {
     });
 }
 
+// Gets the theme preference the user has set
 function getTheme() {
     var theme = document.getElementById('theme');
     var button = document.getElementById('button');
@@ -242,6 +261,7 @@ function getTheme() {
     });
 }
 
+// Adds event listener to Save File button
 document.getElementById("savebutton").addEventListener("click", saveClipboardList);
 
 // Saves clipboard list as a csv file
@@ -277,5 +297,6 @@ function download(filename, text) {
     document.body.removeChild(pom);
 }
 
+// Runs startup functions
 getClipboardText();
 getTheme();
