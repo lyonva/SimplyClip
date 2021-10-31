@@ -1,8 +1,8 @@
-/*
+    /*
 MIT License
 
 Copyright (c) 2021 lalit10
-
+    
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights
@@ -22,21 +22,36 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 let _clipboardList = document.querySelector("#clipboard_list");
+
+let _flag = 0;
+let search_str = "";
+
+
+// Finds all the items in the clipboard Chrome storage and adds them
+// to the list that will be displayed on the UI
 function getClipboardText() {
     chrome.storage.sync.get(['list'], clipboard => {
         let list = clipboard.list;
         let emptyDiv = document.getElementById('empty-div');
         if (list === undefined || list.length === 0) {
             emptyDiv.classList.remove('hide-div');
-        }
+        } 
+        
         else {
             emptyDiv.classList.add('hide-div');
-            if (typeof list !== undefined)
+            if (typeof list !== undefined && _flag == 0){
                 list.forEach(item => {
                     console.log(item);
-                    addClipboardListItem(item)
-                });
-        }
+                    addClipboardListItem(item)})}
+                    //searching the text from search bar in clipboard
+            else if (typeof list !== undefined && _flag == 1) {list.forEach(item => {
+                        if (item.toLowerCase().includes(search_str)){
+                            console.log(item);
+                            addClipboardListItem(item)}});}
+                    
+                    
+                    ;}
+        // }
     });
 }
 
@@ -100,7 +115,7 @@ function addClipboardListItem(text) {
     prevText = text;
 
     if (imageUrl.length > 0) {
-        console.log("IMage Url found")
+        console.log("Image URL found")
         imagePopup.src = imageUrl;
         if (!isVideo) {
             imagePopup.style.width = '32px'
@@ -187,6 +202,44 @@ function addClipboardListItem(text) {
     });
 }
 
+// Reading the search string
+let sb= document.getElementById('searchbar');
+sb.addEventListener('keyup', (event)=>{
+    let searchvalue = document.getElementById('searchbar').value.toLowerCase();
+    search_str = searchvalue;
+    if (!search_str == ""){
+        _flag = 1;
+        while (_clipboardList.firstChild) {
+        _clipboardList.removeChild(_clipboardList.lastChild);}
+        getClipboardText();
+    }
+    else {
+        _flag = 0
+        while (_clipboardList.firstChild) {
+            _clipboardList.removeChild(_clipboardList.lastChild);}
+            getClipboardText();
+    }
+
+  
+})
+
+
+// Clears all the elements in clipboard
+let clear_all_btn = document.getElementById('clear_all_btn')
+
+clear_all_btn.addEventListener('click', (event) => {
+    while (_clipboardList.firstChild) {
+        _clipboardList.removeChild(_clipboardList.lastChild);
+    }
+    chrome.storage.sync.clear();
+    document.getElementById('empty-div').classList.remove('hide-div');
+
+}
+)
+
+
+
+// Adds event listener to dark mode toggle button
 document.getElementById("button").addEventListener("click", toggleTheme);
 
 function toggleTheme() {
