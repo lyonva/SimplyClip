@@ -33,7 +33,6 @@ function readClipboardText(clipboardText) {
     }
 }
 
-
 const addClipboardList = async (clipText)=>{
     chrome.storage.sync.get("list",function(clipboard){
         let {list} = clipboard;
@@ -65,6 +64,7 @@ window.addEventListener('mouseover',function(){
  Creates a mock page to paste clipboard content and get it
 */
 function getContentFromClipboard() {
+    
     bg = chrome.extension.getBackgroundPage();        // get the background page
     bg.document.body.innerHTML= "";                   // clear the background page
 
@@ -93,6 +93,21 @@ chrome.runtime.onInstalled.addListener(function() {
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
     if (request.event == "copy") {
         readClipboardText( getContentFromClipboard() );
+    }
+});
+
+// Create context menu to copy links 
+chrome.contextMenus.create({
+    "id": "copyLink",   // id for menu
+    "title": "Copy link to SimplyClip", // title for menu 
+    "contexts":["link"], 
+  });
+
+// push link to list on click
+chrome.contextMenus.onClicked.addListener((clickData) => {
+    if(clickData.menuItemId == "copyLink") {
+        readClipboardText(clickData.linkUrl);
+    // console.log(clickData.linkUrl)
     }
 });
 

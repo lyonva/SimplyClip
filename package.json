@@ -26,7 +26,7 @@
     ]
   },
   "scripts": {
-    "lint":"./node_modules/.bin/eslint .",
-    "build": "npm build"   
+    "lint": "./node_modules/.bin/eslint .",
+    "build": "npm build"
   }
 }
