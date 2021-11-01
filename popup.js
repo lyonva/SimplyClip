@@ -56,6 +56,19 @@ function getClipboardText() {
     });
 }
 
+document.getElementById("copylink").addEventListener("click", copyToClipboard);
+
+function copyToClipboard() {
+        var dummy = document.createElement('input'),
+        text = window.location.href;
+
+        document.body.appendChild(dummy);
+        dummy.value = text;
+        dummy.select();
+        document.execCommand('copy');
+        //document.body.removeChild(dummy);
+}
+
 // Displays thumbnail for web links in clipboard
 function getThumbnail(textContent) {
 
