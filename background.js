@@ -48,16 +48,6 @@ const addClipboardList = async (clipText)=>{
     })
 }
 
-/*
-window.addEventListener('mouseout',function(){
-    if(time_interval_set===undefined)
-        time_interval_set = setInterval(readClipboardText,2000)
-})
-window.addEventListener('mouseover',function(){
-    clearInterval(time_interval_set);
-    time_interval_set=undefined;
-})
-*/
 
 /* From https://stackoverflow.com/questions/22702446/how-to-get-clipboard-data-in-chrome-extension
  and https://github.com/jeske/BBCodePaste/blob/master/bbcodepaste.js
@@ -107,18 +97,34 @@ chrome.contextMenus.create({
 chrome.contextMenus.onClicked.addListener((clickData) => {
     if(clickData.menuItemId == "copyLink") {
         readClipboardText(clickData.linkUrl);
-    // console.log(clickData.linkUrl)
     }
 });
 
-/*
-document.addEventListener('visibilitychange',function(){
-    if(document.hidden){
-        clearInterval(time_interval_set);
-        time_interval_set=undefined;
-    }else{
-        if(time_interval_set==undefined)
-        time_interval_set = setInterval(readClipboardText,2000);
+chrome.commands.onCommand.addListener(function (command) {
+    switch (command) {
+        case 'paste_first':
+            paste(0);
+            break;
+        case 'paste_second':
+            paste(1);
+            break;
+        default:
+            console.log(`Command ${command} not found`);
     }
-})
-*/
+});
+
+function paste(pos) {
+    chrome.storage.sync.get(["list"], clipboard => {
+        let list = clipboard.list;
+        console.log(list[pos]);
+        // insert_text(list[pos]);
+    });
+}
+
+function insert_text(text) {
+    /*
+    1) get document active area from popup
+    2) put focus on it
+    3) insert the text onto active area
+    */
+}

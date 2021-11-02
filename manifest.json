@@ -14,6 +14,22 @@
     "icons":{
       "32":"./images/paper-clip_32.png"
     },
+    "commands": {
+      "paste_first": {
+        "suggested_key": {
+          "default": "Ctrl+Shift+1",
+          "mac": "Command+Shift+1"
+        },
+        "description": "Pastes the element on top of list"
+      },
+      "paste_second": {
+        "suggested_key": {
+          "default": "Ctrl+Shift+2",
+          "mac": "Command+Shift+2"
+        },
+        "description": "Pastes the 2nd element from the top"
+      }
+    },
     "options_page":"./test/test.html",
     "browser_action":{
         "default_icon":"./images/paper-clip_32.png",
