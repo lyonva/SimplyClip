@@ -1,8 +1,8 @@
-/*
+    /*
 MIT License
 
 Copyright (c) 2021 lalit10
-
+    
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights
@@ -23,25 +23,43 @@ SOFTWARE.
 */
 
 let _clipboardList = document.querySelector("#clipboard_list");
+
+let _flag = 0;
+let search_str = "";
+
+
+// Finds all the items in the clipboard Chrome storage and adds them
+// to the list that will be displayed on the UI
 function getClipboardText() {
     chrome.storage.sync.get(['list'], clipboard => {
         let list = clipboard.list;
         let emptyDiv = document.getElementById('empty-div');
         if (list === undefined || list.length === 0) {
             emptyDiv.classList.remove('hide-div');
-        }
+        } 
+        
         else {
             emptyDiv.classList.add('hide-div');
-            if (typeof list !== undefined)
+            if (typeof list !== undefined && _flag == 0){
                 list.forEach(item => {
                     console.log(item);
-                    addClipboardListItem(item)
-                });
-        }
+                    addClipboardListItem(item)})}
+                    //searching the text from search bar in clipboard
+            else if (typeof list !== undefined && _flag == 1) {list.forEach(item => {
+                        if (item.toLowerCase().includes(search_str)){
+                            console.log(item);
+                            addClipboardListItem(item)}});}
+                    
+                    
+                    ;}
+        // }
     });
 }
 
+// Displays thumbnail for web links in clipboard
 function getThumbnail(textContent) {
+
+    // Displays thumbnail if URL is a YouTube video
     let ind = textContent.indexOf('https://www.youtube.com/');
     if (ind === 0) {
         let videoId = "";
@@ -58,6 +76,7 @@ function getThumbnail(textContent) {
             isVideo: true,
         };
     }
+    // Displays thumbnail for all other URL links in the clipboard
     else {
         let ind = textContent.indexOf('http');
         if (ind === 0) {
@@ -76,8 +95,12 @@ function getThumbnail(textContent) {
     }
         ;
 }
+
+// Adds copied items to UI
 function addClipboardListItem(text) {
     let { sourceUrl, imageUrl, isVideo } = getThumbnail(text);
+
+    // Creates HTML elements for each item in the clipboard list
     let listItem = document.createElement("li"),
         listDiv = document.createElement("div"),
         deleteDiv = document.createElement("div"),
@@ -101,7 +124,7 @@ function addClipboardListItem(text) {
     prevText = text;
 
     if (imageUrl.length > 0) {
-        console.log("IMage Url found")
+        console.log("Image URL found")
         imagePopup.src = imageUrl;
         if (!isVideo) {
             imagePopup.style.width = '32px'
@@ -148,6 +171,8 @@ function addClipboardListItem(text) {
     listItem.appendChild(contentDiv);
 
     _clipboardList.appendChild(listItem);
+
+    // Event listener that allows for copied text to be edited
     editImage.addEventListener('click', (event) => {
         console.log("Edit button clicked");
         prevText = listPara.textContent;
@@ -155,6 +180,8 @@ function addClipboardListItem(text) {
         listPara.setAttribute("contenteditable", "true");
         listPara.focus();
     })
+
+    // Event listener that allows for item to be deleted from clipboard UI list
     deleteImage.addEventListener('click', (event) => {
         console.log("Delete clicked");
         chrome.storage.sync.get(['list'], clipboard => {
@@ -166,6 +193,7 @@ function addClipboardListItem(text) {
         })
     })
 
+    // Event listener that allows text to be copied when it is clicked on UI
     listDiv.addEventListener('click', (event) => {
         let { textContent } = event.target;
         navigator.clipboard.writeText(textContent)
@@ -188,8 +216,47 @@ function addClipboardListItem(text) {
     });
 }
 
+// Reading the search string
+let sb= document.getElementById('searchbar');
+sb.addEventListener('keyup', (event)=>{
+    let searchvalue = document.getElementById('searchbar').value.toLowerCase();
+    search_str = searchvalue;
+    if (!search_str == ""){
+        _flag = 1;
+        while (_clipboardList.firstChild) {
+        _clipboardList.removeChild(_clipboardList.lastChild);}
+        getClipboardText();
+    }
+    else {
+        _flag = 0
+        while (_clipboardList.firstChild) {
+            _clipboardList.removeChild(_clipboardList.lastChild);}
+            getClipboardText();
+    }
+
+  
+})
+
+
+// Clears all the elements in clipboard
+let clear_all_btn = document.getElementById('clear_all_btn')
+
+clear_all_btn.addEventListener('click', (event) => {
+    while (_clipboardList.firstChild) {
+        _clipboardList.removeChild(_clipboardList.lastChild);
+    }
+    chrome.storage.sync.clear();
+    document.getElementById('empty-div').classList.remove('hide-div');
+
+}
+)
+
+
+
+// Adds event listener to dark mode toggle button
 document.getElementById("button").addEventListener("click", toggleTheme);
 
+// If the user toggles the theme, the theme becomes the opposite
 function toggleTheme() {
     var theme = document.getElementById('theme');
     chrome.storage.sync.get(['themetoggle'], function (result) {
@@ -218,6 +285,7 @@ function toggleTheme() {
     });
 }
 
+// Gets the theme preference the user has set
 function getTheme() {
     var theme = document.getElementById('theme');
     var button = document.getElementById('button');
@@ -242,6 +310,7 @@ function getTheme() {
     });
 }
 
+// Adds event listener to Save File button
 document.getElementById("savebutton").addEventListener("click", saveClipboardList);
 
 // Saves clipboard list as a csv file
@@ -277,5 +346,6 @@ function download(filename, text) {
     document.body.removeChild(pom);
 }
 
+// Runs startup functions
 getClipboardText();
 getTheme();
