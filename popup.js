@@ -287,9 +287,29 @@ clear_all_btn.addEventListener('click', (event) => {
 }
 )
 
+// Adds event listener to toggle button
+document.getElementById("toggle-button").addEventListener("click", toggleExtension);
 
 // Adds event listener to dark mode toggle button
 document.getElementById("button").addEventListener("click", toggleTheme);
+
+// Turn the app on or off
+// We also remember the previous state
+function toggleExtension() {
+    chrome.storage.sync.get(["apptoggle"], function (result){
+        // Invert value
+        result.apptoggle = Math.abs(result.apptoggle - 1);
+        // Save
+        chrome.storage.sync.set({ apptoggle: result.apptoggle }, function () {
+            if (result.apptoggle == 0) {
+                console.log("Extension is off");
+            }
+            else if (result.apptoggle == 1) {
+                console.log("Extension is on");
+            }
+        });
+    })
+}
 
 // If the user toggles the theme, the theme becomes the opposite
 function toggleTheme() {

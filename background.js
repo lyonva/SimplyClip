@@ -101,7 +101,8 @@ function setImageFromLink( url ) {
 } 
 
 chrome.runtime.onInstalled.addListener(function() {
-    console.log("Clip installed")
+    console.log("Clip installed");
+    chrome.storage.sync.set({ apptoggle: 1 });
 })
 
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
