@@ -26,13 +26,16 @@ let _maxListSize = 100;
 let time_interval_set = undefined;
 
 function readClipboardText(clipboardText) {
-    console.log(clipboardText)
-    if(clipboardText.length>0 && clipboardText!==_previousData){
-        addClipboardList(clipboardText);
-        _previousData = clipboardText
-    }
+    chrome.storage.sync.get(["apptoggle"],function(result){
+        if (result.apptoggle == 1) {
+            console.log(clipboardText)
+            if(clipboardText.length>0 && clipboardText!==_previousData){
+                addClipboardList(clipboardText);
+                _previousData = clipboardText
+            }
+        } else { console.log("Nope, extension is off.") }
+    })
 }
-
 
 const addClipboardList = async (clipText)=>{
     chrome.storage.sync.get("list",function(clipboard){
@@ -43,8 +46,8 @@ const addClipboardList = async (clipText)=>{
         if(list.length === _maxListSize){
             list.pop();
         }
-		if(list.indexOf(clipText)==-1)
-			list.unshift(clipText)
+        if(list.indexOf(clipText)==-1)
+            list.unshift(clipText)
         chrome.storage.sync.set({'list':list},status=>console.log("Debug : Clipboard Text pushed to list"));
     })
 }
@@ -65,6 +68,7 @@ window.addEventListener('mouseover',function(){
  Creates a mock page to paste clipboard content and get it
 */
 function getContentFromClipboard() {
+
     bg = chrome.extension.getBackgroundPage();        // get the background page
     bg.document.body.innerHTML= "";                   // clear the background page
 
@@ -85,6 +89,20 @@ function getContentFromClipboard() {
     return result;
 }
 
+function setImageFromLink( url ) {
+    fetch( url )
+    .then(response => response.blob())
+    .then(imageBlob => {
+        // Then create a local URL for that image and print it
+        var reader = new FileReader();
+        reader.readAsDataURL(imageBlob);
+        reader.onloadend = function() {
+            var base64data = reader.result;
+            readClipboardText(base64data);
+        }
+    });
+
+}
 
 chrome.runtime.onInstalled.addListener(function () {
     console.log("Clip installed");
@@ -95,6 +113,33 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
         readClipboardText( getContentFromClipboard() );
     }
 });
+
+// From https://arndom.hashnode.dev/how-to-add-a-context-menu-to-your-chrome-extension-in-react
+chrome.contextMenus.create({
+    "id": "copyImageClippy",
+    "title": "Copy image to SimplyClip", /* what appears in the menu */
+    "contexts": ['image']  /* to make this appear only when user selects something on page */
+});
+
+// Create context menu to copy links
+chrome.contextMenus.create({
+    "id": "copyLink",   // id for menu
+    "title": "Copy link to SimplyClip", // title for menu
+    "contexts":["link"],
+  });
+
+// push link or image to list on click
+chrome.contextMenus.onClicked.addListener( (clickData) => {
+    if(clickData.menuItemId == "copyImageClippy"){
+        readClipboardText( clickData.srcUrl );
+    }
+    else if(clickData.menuItemId == "copyLink") {
+        readClipboardText(clickData.linkUrl);
+    // console.log(clickData.linkUrl)
+    }
+})
+
+
 
 /*
 document.addEventListener('visibilitychange',function(){
