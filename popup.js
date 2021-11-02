@@ -24,6 +24,9 @@ SOFTWARE.
 
 let _clipboardList = document.querySelector("#clipboard_list");
 
+
+// Finds all the items in the clipboard Chrome storage and adds them
+// to the list that will be displayed on the UI
 let _flag = 0;
 let search_str = "";
 
@@ -56,6 +59,7 @@ function getClipboardText() {
     });
 }
 
+
 // Displays thumbnail for web links in clipboard
 function getThumbnail(textContent) {
 
@@ -76,16 +80,25 @@ function getThumbnail(textContent) {
             isVideo: true,
         };
     }
-    // Displays thumbnail for all other URL links in the clipboard
     else {
+        // Displays thumbnail for all other URL links in the clipboard
         let ind = textContent.indexOf('http');
         if (ind === 0) {
             let url = new URL(textContent);
-            let ans = "https://favicons.githubusercontent.com/" + url.hostname;
-            return {
-                sourceUrl: textContent,
-                imageUrl: ans,
-                isVideo: false
+
+            if (textContent.match(/\.(jpeg|jpg|gif|png)$/) != null) {
+                return {
+                    sourceUrl : textContent,
+                    imageUrl: textContent,
+                    isVideo: false
+                }
+            } else {
+                let ans = "https://favicons.githubusercontent.com/" + url.hostname;
+                return {
+                    sourceUrl: textContent,
+                    imageUrl: ans,
+                    isVideo: false
+                }
             }
         }
     }
@@ -127,9 +140,10 @@ function addClipboardListItem(text) {
         console.log("Image URL found")
         imagePopup.src = imageUrl;
         if (!isVideo) {
-            imagePopup.style.width = '32px'
-            imagePopup.style.height = '32px';
-
+            imagePopup.style.width = '60px'
+            imagePopup.style.height = '60px';
+            imagePopup.style.marginLeft = '5px';
+            imagePopup.style.marginTop = '2px';
         }
         else {
             imagePopup.style['margin-left'] = '0px';
@@ -196,8 +210,8 @@ function addClipboardListItem(text) {
     // Event listener that allows text to be copied when it is clicked on UI
     listDiv.addEventListener('click', (event) => {
         let { textContent } = event.target;
-        navigator.clipboard.writeText(textContent)
-            .then(() => {
+        convertContentForClipboard(textContent)
+         {
                 console.log(`Text saved to clipboard`);
                 chrome.storage.sync.get(['list'], clipboard => {
                     let list = clipboard.list;
@@ -209,11 +223,33 @@ function addClipboardListItem(text) {
                     _clipboardList.innerHTML = "";
                     chrome.storage.sync.set({ 'list': list }, () => getClipboardText());
                 });
-            });
+            };
         let x = document.getElementById("snackbar");
         x.className = "show";
         setTimeout(function () { x.className = x.className.replace("show", ""); }, 3000);
     });
+}
+
+// For image links, converts them the raw image data before copying to clipboard
+// New data types should also be added here
+function convertContentForClipboard(content) {
+    if ( content.indexOf('http') == 0 && content.match(/\.(jpeg|jpg|gif|png)$/) != null ) {
+        chrome.runtime.sendMessage({event: "pasteImage", content : content});
+        fetch( content )
+        .then(response => response.blob())
+        .then(imageBlob => {
+            console.log(imageBlob);
+            var data = [new ClipboardItem({[imageBlob.type] : imageBlob})];
+            navigator.clipboard.write( data ).then(function () {
+                // Sucess
+              }, function (err) {
+                // Not supported, paste url
+                navigator.clipboard.writeText( content );
+              });
+        });
+    } else {
+        navigator.clipboard.writeText( content );
+    }
 }
 
 // Reading the search string
@@ -250,7 +286,6 @@ clear_all_btn.addEventListener('click', (event) => {
 
 }
 )
-
 
 
 // Adds event listener to dark mode toggle button

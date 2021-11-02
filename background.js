@@ -85,6 +85,20 @@ function getContentFromClipboard() {
     return result;
 }
 
+function setImageFromLink( url ) {
+    fetch( url )
+    .then(response => response.blob())
+    .then(imageBlob => {
+        // Then create a local URL for that image and print it 
+        var reader = new FileReader();
+        reader.readAsDataURL(imageBlob); 
+        reader.onloadend = function() {
+            var base64data = reader.result;                
+            readClipboardText(base64data);
+        }
+    });
+
+} 
 
 chrome.runtime.onInstalled.addListener(function() {
     console.log("Clip installed")
@@ -96,20 +110,32 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
     }
 });
 
+// From https://arndom.hashnode.dev/how-to-add-a-context-menu-to-your-chrome-extension-in-react
+chrome.contextMenus.create({
+    "id": "copyImageClippy",
+    "title": "Copy image to SimplyClip", /* what appears in the menu */
+    "contexts": ['image']  /* to make this appear only when user selects something on page */
+});
+
 // Create context menu to copy links 
 chrome.contextMenus.create({
     "id": "copyLink",   // id for menu
     "title": "Copy link to SimplyClip", // title for menu 
-    "contexts":["link"], 
+    "contexts":["link"],
   });
 
-// push link to list on click
-chrome.contextMenus.onClicked.addListener((clickData) => {
-    if(clickData.menuItemId == "copyLink") {
+// push link or image to list on click
+chrome.contextMenus.onClicked.addListener( (clickData) => {
+    if(clickData.menuItemId == "copyImageClippy"){
+        readClipboardText( clickData.srcUrl );
+    }
+    else if(clickData.menuItemId == "copyLink") {
         readClipboardText(clickData.linkUrl);
     // console.log(clickData.linkUrl)
     }
-});
+})
+
+
 
 /*
 document.addEventListener('visibilitychange',function(){
