@@ -296,16 +296,18 @@ document.getElementById("button").addEventListener("click", toggleTheme);
 // Turn the app on or off
 // We also remember the previous state
 function toggleExtension() {
-    chrome.storage.sync.get(["apptoggle"], function (result){
+    chrome.storage.sync.get("apptoggle", function (result){
         // Invert value
-        result.apptoggle = Math.abs(result.apptoggle - 1);
+        result = Math.abs(result.apptoggle - 1);
         // Save
-        chrome.storage.sync.set({ apptoggle: result.apptoggle }, function () {
-            if (result.apptoggle == 0) {
+        chrome.storage.sync.set({ apptoggle: result }, function () {
+            if (result == 0) {
                 console.log("Extension is off");
             }
-            else if (result.apptoggle == 1) {
+            else if (result == 1) {
                 console.log("Extension is on");
+            } else {
+                console.log("Unknown state: ", result)
             }
         });
     })

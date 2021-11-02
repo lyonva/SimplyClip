@@ -26,11 +26,15 @@ let _maxListSize = 100;
 let time_interval_set = undefined;
 
 function readClipboardText(clipboardText) {
-    console.log(clipboardText)
-    if(clipboardText.length>0 && clipboardText!==_previousData){
-        addClipboardList(clipboardText);
-        _previousData = clipboardText
-    }
+    chrome.storage.sync.get(["apptoggle"],function(result){
+        if (result.apptoggle == 1) {
+            console.log(clipboardText)
+            if(clipboardText.length>0 && clipboardText!==_previousData){
+                addClipboardList(clipboardText);
+                _previousData = clipboardText
+            }
+        } else { console.log("Nope, extension is off.") }
+    })
 }
 
 const addClipboardList = async (clipText)=>{
@@ -42,8 +46,8 @@ const addClipboardList = async (clipText)=>{
         if(list.length === _maxListSize){
             list.pop();
         }
-		if(list.indexOf(clipText)==-1)
-			list.unshift(clipText)
+        if(list.indexOf(clipText)==-1)
+            list.unshift(clipText)
         chrome.storage.sync.set({'list':list},status=>console.log("Debug : Clipboard Text pushed to list"));
     })
 }
