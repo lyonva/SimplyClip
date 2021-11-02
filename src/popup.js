@@ -2,7 +2,11 @@
 MIT License
 
 Copyright (c) 2021 lalit10
+<<<<<<< HEAD
 
+=======
+
+>>>>>>> dc95b4b45a2f356a56f5737d3fb57c7fadf7ca4f
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights
@@ -269,7 +273,6 @@ sb.addEventListener('keyup', (event)=>{
             _clipboardList.removeChild(_clipboardList.lastChild);}
             getClipboardText();
     }
-
 
 })
 
