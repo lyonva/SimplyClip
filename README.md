@@ -19,9 +19,8 @@
 <placeholder doi>
 <placeholder tests>
  
- As T. S. Eliot once famously said
-
-> Distracted from distraction by distraction.
+ 
+> Don’t work longer hours, instead make the hours worth more – focus your efforts to get more done in the same period. - Henry Ford
 
 
 SimplyClip is a google chrome extension which enables singular shared clipboard for research students and power users.
