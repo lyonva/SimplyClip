@@ -2,7 +2,11 @@
 MIT License
 
 Copyright (c) 2021 lalit10
-    
+<<<<<<< HEAD
+
+=======
+
+>>>>>>> dc95b4b45a2f356a56f5737d3fb57c7fadf7ca4f
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights
@@ -39,8 +43,8 @@ function getClipboardText() {
         let emptyDiv = document.getElementById('empty-div');
         if (list === undefined || list.length === 0) {
             emptyDiv.classList.remove('hide-div');
-        } 
-        
+        }
+
         else {
             emptyDiv.classList.add('hide-div');
             if (typeof list !== undefined && _flag == 0){
@@ -52,8 +56,8 @@ function getClipboardText() {
                         if (item.toLowerCase().includes(search_str)){
                             console.log(item);
                             addClipboardListItem(item)}});}
-                    
-                    
+
+
                     ;}
         // }
     });
@@ -270,7 +274,6 @@ sb.addEventListener('keyup', (event)=>{
             getClipboardText();
     }
 
-  
 })
 
 
@@ -291,6 +294,7 @@ clear_all_btn.addEventListener('click', (event) => {
 document.getElementById("toggle-button").addEventListener("click", toggleExtension);
 
 // Adds event listener to dark mode toggle button
+// Connor
 document.getElementById("button").addEventListener("click", toggleTheme);
 
 // Turn the app on or off
@@ -314,6 +318,7 @@ function toggleExtension() {
 }
 
 // If the user toggles the theme, the theme becomes the opposite
+// Connor
 function toggleTheme() {
     var theme = document.getElementById('theme');
     chrome.storage.sync.get(['themetoggle'], function (result) {
@@ -343,6 +348,7 @@ function toggleTheme() {
 }
 
 // Gets the theme preference the user has set
+// Connor
 function getTheme() {
     var theme = document.getElementById('theme');
     var button = document.getElementById('button');
@@ -368,9 +374,11 @@ function getTheme() {
 }
 
 // Adds event listener to Save File button
+// Connor
 document.getElementById("savebutton").addEventListener("click", saveClipboardList);
 
 // Saves clipboard list as a csv file
+// Connor
 function saveClipboardList() {
     var today = new Date();
     var date = today.getFullYear() + '-' + (today.getMonth()+1) + '-' + today.getDate();
@@ -388,6 +396,7 @@ function saveClipboardList() {
 
 // Function that allows all text in clipboard to be saved as a csv file
 // Credit goes to DevonTaig - https://stackoverflow.com/users/1069916/devontaig
+// Connor
 function download(filename, text) {
     var pom = document.createElement('a');
     pom.setAttribute('href', 'data:text/plain;charset=utf-8,' +
