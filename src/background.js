@@ -23,11 +23,11 @@ SOFTWARE.
 */
 
 /*
-Background script
-This is always running while the extension is enabled
-Code here is only executed when triggered by user actions
-Or when other code asks to
-*/
+ * Background script
+ * This is always running while the extension is enabled
+ * Code here is only executed when triggered by user actions
+ * Or when other code asks to
+ */
 
 // Important variables and constants
 let _previousData=""; // Last read clipboard data, to avoid having duplicate entries
@@ -35,11 +35,11 @@ let _maxListSize = 100; // Maximum size of the list
         // Note that, per Chrome limitations, the list cannot be larger than 8 KB
 
 
-/**
-Custom application context menus
-From https://arndom.hashnode.dev/how-to-add-a-context-menu-to-your-chrome-extension-in-react
-Added so we get actions for storing links and images in the clipboard
-*/
+/*
+ * Custom application context menus
+ * From https://arndom.hashnode.dev/how-to-add-a-context-menu-to-your-chrome-extension-in-react
+ * Added so we get actions for storing links and images in the clipboard
+ */
 // Create context menu to copy images
 chrome.contextMenus.create({
     "id": "copyImageClippy", // Unique id for menu
@@ -63,11 +63,11 @@ chrome.contextMenus.create({
  *  2. Copied text must be non-empty
  *  3. Must be different from last read entry
  * 
- * *Input*
+ * **Input**
  *  - Content copied by user, text only.
  * 
- * *Output*
- *  - None.
+ * **Output**
+ *  - None
  *  - Text is added to the clipboard list if conditions are met
  */
 function readClipboardText(clipboardText) {
@@ -85,17 +85,15 @@ function readClipboardText(clipboardText) {
 }
 
 /**
- * Function:
- *     addClipboardList
- * Description:
- *     Adds content to cliboard list
- *     Should not be used directly, instead use readClipboardText
+ * Adds content to cliboard list.
+ * Should not be used directly, instead use readClipboardText.
  * 
- * Input:
- *     Content copied by user, text only
- * Output:
- *     Does not return
- *     Text is added to the clipboard list if conditions are met
+ * **Input**
+ *  - Content copied by user, text only
+ * 
+ * **Output**
+ *  - None
+ *  - Text is added to the clipboard list if conditions are met
  */
 const addClipboardList = async (clipText)=>{
     chrome.storage.sync.get("list", function(clipboard) {
@@ -123,20 +121,18 @@ const addClipboardList = async (clipText)=>{
     })
 }
 
-
 /**
- * Function:
- *     getContentFromClipboard
- * Description:
- *     Gets content the user just copied from the clipboard
- *     Creates a mock page to paste clipboard content and get it
+ * Gets content the user just copied from the clipboard.
+ *     Creates a mock page to paste clipboard content and get it.
  *     Created from https://stackoverflow.com/questions/22702446/how-to-get-clipboard-data-in-chrome-extension
  *     and https://github.com/jeske/BBCodePaste/blob/master/bbcodepaste.js
- * Input:
- *     None
- *     Requires browser clipboard to have something in it
- * Output:
- *     Text content that the user just copied
+ * 
+ * **Input**
+ *  - None
+ *  - Requires browser clipboard to have something in it
+ * 
+ * **Output**
+ *  - Text content that the user just copied
  */
 function getContentFromClipboard() {
     // Get the background page, the html file associated with this script
@@ -164,17 +160,17 @@ function getContentFromClipboard() {
 }
 
 /**
- * CURRENTLY UNUSED
- * Function:
- *     setImageFromLink
- * Description:
- *     Take and image url and save it on the clipboard
- *     This is done by converting it to base 64 data
- * Input:
- *     URL, must be pointing to an image resource
- * Output:
- *     None
- *     Image data is converted to base64 and saved to clipboard
+ * CURRENTLY UNUSED.
+ * 
+ * Take and image url and save it on the clipboard.
+ * This is done by converting it to base 64 data.
+ * 
+ * **Input**
+ *  - URL, must be pointing to an image resource
+ * 
+ * **Output**
+ *  - None
+ *  - Image data is converted to base64 and saved to clipboard
  */
 function setImageFromLink( url ) {
     // Make a fetch request to grab image data
@@ -194,22 +190,22 @@ function setImageFromLink( url ) {
 }
 
 /**
- * Function:
- *     Anonymous function
- *     Run when extension is installed or reloaded
- * Description:
- *     Create important variables
- *     That are saved on Chrome's sync storage
- *     List of variables:
- *         1) apptoggle: determines if the app captures from clipboard actions
- *         2) list: History of items copied from the clipboard
- * Input:
- *     None
- * Output:
- *     None
- *     The variables are created on sync storage
+ * Create important variables.
+ * That are saved on Chrome's sync storage.
+ * List of variables:
+ * 1. apptoggle: determines if the app captures from clipboard actions
+ * 2. list: History of items copied from the clipboard
+ * 
+ * 
+ * 
+ * **Input**
+ *  - None
+ * 
+ * **Output**
+ *  - None
+ *  - The variables are created on sync storage
  */
-chrome.runtime.onInstalled.addListener(function() {
+function setSyncVariables() {
     // For debugging, log the call of the routine
     // console.log("Clip installed");
 
@@ -225,42 +221,43 @@ chrome.runtime.onInstalled.addListener(function() {
 
     // For debugging, remove list on every reinstall
     // chrome.storage.sync.set({ list: [] });
-})
+}
+
+//  Run when extension is installed or reloaded.
+chrome.runtime.onInstalled.addListener( setSyncVariables )
 
 /**
- * Function:
- *     Anonymous function
- *     Run a "copy" message is sent
- *     This is done when user copies or cuts text from the clipboard
- * Description:
- *     When user triggers a copy
- *     Capture the content they just copied
- *     And save it into the clipboard
- * Input:
- *     None
- * Output:
- *     None
- *     If conditions are met, the text is stored into the clipboard
+ * When user triggers a copy, capture the content they just copied
+ * and save it into the clipboard
+ * 
+ * **Input**
+ *  - None
+ * 
+ * **Output**
+ *  - None
+ *  - If conditions are met, the text is stored into the clipboard
  */
-chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
+function onCopyMessage(request, sender, sendResponse) {
     if (request.event == "copy") {
         readClipboardText( getContentFromClipboard() );
     }
-});
+}
+
+// Run when a "copy" message is sent.
+// This is done when user copies or cuts text from the clipboard.
+chrome.runtime.onMessage.addListener(onCopyMessage);
 
 /**
- * Function:
- *     Anonymous function
- *     Runs when a context menu item is selected
- * Description:
- *     Push link or image to the clipboard list
- * Input:
- *     None
- * Output:
- *     None
- *     If conditions are met, the data is stored into the clipboard
+ * Push link or image to the clipboard list.
+ * 
+ * **Input**
+ *  - None
+ * 
+ * **Output**
+ *  - None
+ *  - If conditions are met, the text is stored into the clipboard
  */
-chrome.contextMenus.onClicked.addListener( (clickData) => {
+ function onContextMenuClick(clickData) {
     // For images
     if(clickData.menuItemId == "copyImageClippy"){
         readClipboardText( clickData.srcUrl );
@@ -269,4 +266,7 @@ chrome.contextMenus.onClicked.addListener( (clickData) => {
     else if(clickData.menuItemId == "copyLink") {
         readClipboardText(clickData.linkUrl);
     }
-})
+}
+
+// Runs when a context menu item is selected.
+chrome.contextMenus.onClicked.addListener( onContextMenuClick )
