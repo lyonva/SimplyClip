@@ -2,8 +2,7 @@
 
 {
     "plugins": [
-        "plugins/markdown",
-        "plugins/summarize"
+        "plugins/markdown"
     ],
     "recurseDepth": 10,
     "source": {
