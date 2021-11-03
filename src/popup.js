@@ -1,4 +1,4 @@
-    /*
+/*
 MIT License
 
 Copyright (c) 2021 lalit10
@@ -283,6 +283,15 @@ clear_all_btn.addEventListener('click', (event) => {
 }
 )
 
+/**
+ * Adds event listeners to the toggle extension, toggle theme, and save file buttons
+ *
+ * **Input**
+ *  - None
+ *
+ * **Output**
+ *  - 3 event listeners
+ */
 function createButtonListeners() {
     // Adds event listener to toggle button
     document.getElementById("toggle-button").addEventListener("click", toggleExtension);
@@ -316,15 +325,15 @@ function toggleExtension() {
     })
 }
 
-/*
-Function:
-    toggleTheme
-Description:
-    Toggles the theme to the opposite of the current (light/dark theme)
-Input:
-    None
-Output:
-    Changes the user theme preference to the opposite of the current theme
+/**
+ * Toggles the theme to the opposite of the current (light/dark theme)
+ *
+ * **Input**
+ *  - None
+ *
+ * **Output**
+ *  - Changes the user theme preference to the opposite of the current theme
+ *
  */
 function toggleTheme() {
     var theme = document.getElementById('theme');
@@ -354,15 +363,14 @@ function toggleTheme() {
     });
 }
 
-/*
-Function:
-    getTheme
-Description:
-    Gets the theme preference the user has set
-Input:
-    None
-Output:
-    Sets the theme based off the last known user setting
+/**
+ * Gets the theme preference the user has set
+ *
+ * **Input**
+ *  - None
+ *
+ * **Output**
+ *  - Sets the theme based off the last known user setting
  */
 function getTheme() {
     var theme = document.getElementById('theme');
@@ -391,16 +399,14 @@ function getTheme() {
 // Adds event listener to Save File button
 document.getElementById("savebutton").addEventListener("click", saveClipboardList);
 
-/*
-Function:
-    saveClipboardList
-Description:
-    Saves clipboard list as a csv file
-
-Input:
-    None
-Output:
-    Downloads a csv file with all clipboard list contents
+/**
+ * Saves clipboard list as a csv file
+ *
+ * **Input**
+ *  - None
+ *
+ * **Output**
+ *  - Downloads a csv file with all clipboard list contents
  */
 function saveClipboardList() {
     var today = new Date();
@@ -417,17 +423,16 @@ function saveClipboardList() {
     });
 }
 
-/*
-Function:
-    download
-Description:
-    Automates download of clipboard list as a csv file
-    Credit goes to DevonTaig - https://stackoverflow.com/users/1069916/devontaig
-Input:
-    The name of the resulting csv file
-    The text that will be added in the csv file
-Output:
-    A csv file with all the clipboard list contents
+/**
+ * Automates download of clipboard list as a csv file
+ * Credit goes to DevonTaig - https://stackoverflow.com/users/1069916/devontaig
+ *
+ * **Input**
+ *  - The name of the resulting csv file
+ *  - The text that will be added in the csv file
+ *
+ * **Output**
+ *  - A csv file with all the clipboard list contents
  */
 function download(filename, text) {
     var pom = document.createElement('a');
