@@ -11,10 +11,12 @@ Have you identified a reproducible problem in our sample code? Have a feature re
 
 ### Where to Report
 
-You can report the issues by contacting us on our email ids.
--llbangad@ncsu.edu
--pavaidya@ncsu.edu
--apande@ncsu.edu 
+You can report the issues by contacting us on our email ids:
+- cpsmith6@ncsu.edu
+- rramakr@ncsu.edu
+- vagrawa5@ncsu.edu
+- ashetty2@ncsu.edu
+- lvillal@ncsu.edu
 
 ### Look For an Existing Issue
 

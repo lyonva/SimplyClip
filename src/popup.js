@@ -1,4 +1,4 @@
-    /*
+/*
 MIT License
 
 Copyright (c) 2021 lalit10
@@ -23,17 +23,22 @@ SOFTWARE.
 
 let _clipboardList = document.querySelector("#clipboard_list");
 
-
-// Finds all the items in the clipboard Chrome storage and adds them
-// to the list that will be displayed on the UI
 let _flag = 0;
 let search_str = "";
+let LIST_NAME = 'list';
 
-
-// Finds all the items in the clipboard Chrome storage and adds them
-// to the list that will be displayed on the UI
-function getClipboardText() {
-    chrome.storage.sync.get(['list'], clipboard => {
+/**
+ * Finds all the items in the clipboard Chrome storage and adds them to the list
+ * that will be displayed on the UI
+ *
+ * **Input**
+ *  - String of key for chrome storage
+ *
+ * **Output**
+ *  - None
+ */
+function getClipboardText(listName) {
+    chrome.storage.sync.get([listName], clipboard => {
         let list = clipboard.list;
         let emptyDiv = document.getElementById('empty-div');
         if (list === undefined || list.length === 0) {
@@ -45,21 +50,30 @@ function getClipboardText() {
             if (typeof list !== undefined && _flag == 0){
                 list.forEach(item => {
                     console.log(item);
-                    addClipboardListItem(item)})}
+                    addClipboardListItem(item, listName)})}
                     //searching the text from search bar in clipboard
-            else if (typeof list !== undefined && _flag == 1) {list.forEach(item => {
-                        if (item.toLowerCase().includes(search_str)){
-                            console.log(item);
-                            addClipboardListItem(item)}});}
-
-
-                    ;}
-        // }
+            else if (typeof list !== undefined && _flag == 1) {
+                list.forEach(item => {
+                    if (item.toLowerCase().includes(search_str)) {
+                        console.log(item);
+                        addClipboardListItem(item, listName);
+                    }
+                });
+            }
+        }
     });
 }
 
-
-// Displays thumbnail for web links in clipboard
+/**
+ * Displays thumbnail for web links in clipboard
+ *
+ * **Input**
+ *  - Copied link
+ *
+ * **Output**
+ *  - Appropriate image thumbnail associated with the link
+ */
+//
 function getThumbnail(textContent) {
 
     // Displays thumbnail if URL is a YouTube video
@@ -108,8 +122,17 @@ function getThumbnail(textContent) {
         ;
 }
 
-// Adds copied items to UI
-function addClipboardListItem(text) {
+/**
+ * Adds copied items to UI
+ *
+ * **Input**
+ *  - text, The copied text
+ *  - listName, String of key for chrome storage
+ *
+ * **Output**
+ *  - New element is added to UI containing new copied text
+ */
+function addClipboardListItem(text, listName) {
     let { sourceUrl, imageUrl, isVideo } = getThumbnail(text);
 
     // Creates HTML elements for each item in the clipboard list
@@ -162,11 +185,11 @@ function addClipboardListItem(text) {
         event.target.setAttribute("contenteditable", "false");
         newText = event.target.textContent;
         console.log(newText);
-        chrome.storage.sync.get(['list'], clipboard => {
+        chrome.storage.sync.get([listName], clipboard => {
             let list = clipboard.list;
             let index = list.indexOf(prevText);
             list[index] = newText;
-            chrome.storage.sync.set({ 'list': list }, () => { console.log("Text updated"); });
+            chrome.storage.sync.set({ listName: list }, () => { console.log("Text updated"); });
         })
     })
     listDiv.classList.add("list-div");
@@ -197,12 +220,12 @@ function addClipboardListItem(text) {
     // Event listener that allows for item to be deleted from clipboard UI list
     deleteImage.addEventListener('click', (event) => {
         console.log("Delete clicked");
-        chrome.storage.sync.get(['list'], clipboard => {
+        chrome.storage.sync.get([listName], clipboard => {
             let list = clipboard.list;
             let index = list.indexOf(text);
             list.splice(index, 1);
             _clipboardList.innerHTML = "";
-            chrome.storage.sync.set({ 'list': list }, () => getClipboardText());
+            chrome.storage.sync.set({ listName: list }, () => getClipboardText(listName));
         })
     })
 
@@ -212,7 +235,7 @@ function addClipboardListItem(text) {
         convertContentForClipboard(textContent)
          {
                 console.log(`Text saved to clipboard`);
-                chrome.storage.sync.get(['list'], clipboard => {
+                chrome.storage.sync.get([listName], clipboard => {
                     let list = clipboard.list;
                     let index = list.indexOf(textContent);
                     if (index !== -1)
@@ -220,7 +243,7 @@ function addClipboardListItem(text) {
 
                     list.unshift(textContent);
                     _clipboardList.innerHTML = "";
-                    chrome.storage.sync.set({ 'list': list }, () => getClipboardText());
+                    chrome.storage.sync.set({ listName: list }, () => getClipboardText(listName));
                 });
             };
         let x = document.getElementById("snackbar");
@@ -229,8 +252,16 @@ function addClipboardListItem(text) {
     });
 }
 
-// For image links, converts them the raw image data before copying to clipboard
-// New data types should also be added here
+/**
+ * For image links, converts them to raw image data before copying to clipboard
+ * New data types should also be added here
+ *
+ * **Input**
+ *  - content, The image link to be converted
+ *
+ * **Output**
+ *  - Converted image is added to the clipboard
+ */
 function convertContentForClipboard(content) {
     if ( content.indexOf('http') == 0 && content.match(/\.(jpeg|jpg|gif|png)$/) != null ) {
         chrome.runtime.sendMessage({event: "pasteImage", content : content});
@@ -240,7 +271,7 @@ function convertContentForClipboard(content) {
             console.log(imageBlob);
             var data = [new ClipboardItem({[imageBlob.type] : imageBlob})];
             navigator.clipboard.write( data ).then(function () {
-                // Sucess
+                // Success
               }, function (err) {
                 // Not supported, paste url
                 navigator.clipboard.writeText( content );
@@ -271,18 +302,22 @@ function readingsearchstr() {
         _flag = 1;
         while (_clipboardList.firstChild) {
         _clipboardList.removeChild(_clipboardList.lastChild);}
-        getClipboardText();
+        getClipboardText(listName);
     }
     else {
         _flag = 0
         while (_clipboardList.firstChild) {
             _clipboardList.removeChild(_clipboardList.lastChild);}
-            getClipboardText();
+            getClipboardText(listName);
     }
+<<<<<<< HEAD
 
 }
 
 document.getElementById('searchbar').addEventListener('keyup', (event)=> readingsearchstr())
+=======
+})
+>>>>>>> main
 
 
 
@@ -313,15 +348,37 @@ document.getElementById('clear_all_btn').addEventListener('click', (event) => cl
 
 
 
-// Adds event listener to toggle button
-document.getElementById("toggle-button").addEventListener("click", toggleExtension);
+/**
+ * Adds event listeners to the toggle extension, toggle theme, and save file buttons
+ *
+ * **Input**
+ *  - None
+ *
+ * **Output**
+ *  - 3 event listeners
+ */
+function createButtonListeners() {
+    // Adds event listener to toggle button
+    document.getElementById("toggle-button").addEventListener("click", toggleExtension);
 
-// Adds event listener to dark mode toggle button
-// Connor
-document.getElementById("button").addEventListener("click", toggleTheme);
+    // Adds event listener to dark mode toggle button
+    // Connor
+    document.getElementById("button").addEventListener("click", toggleTheme);
 
-// Turn the app on or off
-// We also remember the previous state
+    // Adds event listener to Save File button
+    // Connor
+    document.getElementById("savebutton").addEventListener("click", (e) => { saveClipboardList(LIST_NAME) });
+}
+
+/**
+ * Turns the extension on or off while remembering its previous state
+ *
+ * **Input**
+ *  - None
+ *
+ * **Output**
+ *  - Opposite of the current active state
+ */
 function toggleExtension() {
     chrome.storage.sync.get("apptoggle", function (result){
         // Invert value
@@ -340,8 +397,16 @@ function toggleExtension() {
     })
 }
 
-// If the user toggles the theme, the theme becomes the opposite
-// Connor
+/**
+ * Toggles the theme to the opposite of the current (light/dark theme)
+ *
+ * **Input**
+ *  - None
+ *
+ * **Output**
+ *  - Changes the user theme preference to the opposite of the current theme
+ *
+ */
 function toggleTheme() {
     var theme = document.getElementById('theme');
     chrome.storage.sync.get(['themetoggle'], function (result) {
@@ -370,8 +435,15 @@ function toggleTheme() {
     });
 }
 
-// Gets the theme preference the user has set
-// Connor
+/**
+ * Gets the theme preference the user has set
+ *
+ * **Input**
+ *  - None
+ *
+ * **Output**
+ *  - Sets the theme based off the last known user setting
+ */
 function getTheme() {
     var theme = document.getElementById('theme');
     var button = document.getElementById('button');
@@ -397,17 +469,23 @@ function getTheme() {
 }
 
 // Adds event listener to Save File button
-// Connor
 document.getElementById("savebutton").addEventListener("click", saveClipboardList);
 
-// Saves clipboard list as a csv file
-// Connor
+/**
+ * Saves clipboard list as a csv file
+ *
+ * **Input**
+ *  - None
+ *
+ * **Output**
+ *  - Downloads a csv file with all clipboard list contents
+ */
 function saveClipboardList() {
     var today = new Date();
     var date = today.getFullYear() + '-' + (today.getMonth()+1) + '-' + today.getDate();
     var time = today.getHours().toString() + today.getMinutes().toString() + today.getSeconds().toString();
     var dateTime = date + ' ' + time;
-    chrome.storage.sync.get(['list'], clipboard => {
+    chrome.storage.sync.get([listName], clipboard => {
         let list = clipboard.list;
         let result = "";
         for (i = 0; i < list.length; i++){
@@ -417,9 +495,17 @@ function saveClipboardList() {
     });
 }
 
-// Function that allows all text in clipboard to be saved as a csv file
-// Credit goes to DevonTaig - https://stackoverflow.com/users/1069916/devontaig
-// Connor
+/**
+ * Automates download of clipboard list as a csv file
+ * Credit goes to DevonTaig - https://stackoverflow.com/users/1069916/devontaig
+ *
+ * **Input**
+ *  - The name of the resulting csv file
+ *  - The text that will be added in the csv file
+ *
+ * **Output**
+ *  - A csv file with all the clipboard list contents
+ */
 function download(filename, text) {
     var pom = document.createElement('a');
     pom.setAttribute('href', 'data:text/plain;charset=utf-8,' +
@@ -436,5 +522,6 @@ function download(filename, text) {
 }
 
 // Runs startup functions
-getClipboardText();
+getClipboardText(LIST_NAME);
 getTheme();
+createButtonListeners();
