@@ -20,6 +20,8 @@ jobs:
         with:
           source_dir: ./src
           output_dir: ./out
+          recurse: true
+          config_file: ./docs/jsdoc/readme.md
           template: docdash
           front_page: ./docs/jsdoc/readme.md
 
