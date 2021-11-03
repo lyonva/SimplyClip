@@ -11,29 +11,29 @@
 [![Coverage Status](https://coveralls.io/repos/github/lalit10/SimplyClip/badge.svg?branch=main)](https://coveralls.io/github/lalit10/SimplyClip?branch=main)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5542732.svg)](https://doi.org/10.5281/zenodo.5542732)
 
-# SimplyClip
-
-##  The clipboard made easy for research
+# SimplyClipX
 
 <placeholder builds>
 <placeholder doi>
 <placeholder tests>
  
- As T. S. Eliot once famously said
 
-> Distracted from distraction by distraction.
+> Don’t work longer hours, instead make the hours worth more – focus your efforts to get more done in the same period. - Henry Ford
 
 
-SimplyClip is a google chrome extension which enables singular shared clipboard for research students and power users.
+SimplyClipX is an extension for chromium based browsers which enables users to have a simple and convenient place to manage their clipboard.
+    
+Have multiple things to copy and keep track of? SimplyClipX is here to help you out.
 
-- Ability to recognise multiple text selections
-- Cross tab selection
-- Works like a charm for research work.
+- Copy any text, image or link from a web page.
+- Keyboard shortcuts to paste the top 10 items in your clipboard (To be implemented in future).
+- Search through the list of everything that you've copied.
 - Unlimited focus!
  
+<placeholder UI-gif>
+    
 
-
-https://user-images.githubusercontent.com/11155124/135507262-f26999c1-83b6-4225-9073-6b654ff6d7c0.mp4
+<!-- https://user-images.githubusercontent.com/11155124/135507262-f26999c1-83b6-4225-9073-6b654ff6d7c0.mp4 -->
 
 
  
@@ -139,4 +139,3 @@ User is even allowed to edit the text entry copied to the extension clipboard. T
 </table>
 
 ***Enjoy using SimplyClip. Make sure to follow the page for any new updates!*** 
-
