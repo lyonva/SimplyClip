@@ -2,11 +2,6 @@
 MIT License
 
 Copyright (c) 2021 lalit10
-<<<<<<< HEAD
-
-=======
-
->>>>>>> dc95b4b45a2f356a56f5737d3fb57c7fadf7ca4f
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights
@@ -256,9 +251,20 @@ function convertContentForClipboard(content) {
     }
 }
 
-// Reading the search string
-let sb= document.getElementById('searchbar');
-sb.addEventListener('keyup', (event)=>{
+
+/**
+ * Reading the search string 
+ * This function reads the text entered in the search bar
+ * 
+ * **Input**
+ *  - This function is executed when the user inputs any data in the search bar
+ * 
+ * **Output**
+ *  - sets the search_str as the data entered in the search bar
+ *  - The flag is set to 1 if any data is entered in the search bar
+ */
+
+function readingsearchstr() {
     let searchvalue = document.getElementById('searchbar').value.toLowerCase();
     search_str = searchvalue;
     if (!search_str == ""){
@@ -274,13 +280,26 @@ sb.addEventListener('keyup', (event)=>{
             getClipboardText();
     }
 
-})
+}
+
+document.getElementById('searchbar').addEventListener('keyup', (event)=> readingsearchstr())
 
 
-// Clears all the elements in clipboard
-let clear_all_btn = document.getElementById('clear_all_btn')
 
-clear_all_btn.addEventListener('click', (event) => {
+
+/**
+ * Clears all the elements in clipboard 
+ * This function clears the clipboard list displayed in the extention and the chrome storage
+ * 
+ * **Input**
+ *  - This function is executed when the user clicks on Clear all button
+ * 
+ * **Output**
+ *  - the chrome storage is cleared
+ *  - All the copied text is removed from the user interface.
+ */
+
+function clearall() {
     while (_clipboardList.firstChild) {
         _clipboardList.removeChild(_clipboardList.lastChild);
     }
@@ -288,7 +307,11 @@ clear_all_btn.addEventListener('click', (event) => {
     document.getElementById('empty-div').classList.remove('hide-div');
 
 }
-)
+
+document.getElementById('clear_all_btn').addEventListener('click', (event) => clearall())
+
+
+
 
 // Adds event listener to toggle button
 document.getElementById("toggle-button").addEventListener("click", toggleExtension);
