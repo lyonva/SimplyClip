@@ -56,19 +56,18 @@ chrome.contextMenus.create({
 
 
 /**
- * Function:
- *     readClipboardText
- * Description:
- *     Checks if clipboardtext can be added
- *     If so, ads it
- *     This is the main entrypoint for storing data in clipboard
- *     To add: 1) App must be toggled on
- *             2) Copied text must be non-empty
- *             3) Must be different from last read entry
+ * Checks if clipboardtext can be added
+ * if so, ads it
+ * This is the main entrypoint for storing data in clipboard
+ * To add: 1) App must be toggled on
+ *  2) Copied text must be non-empty
+ *  3) Must be different from last read entry
+ * 
  * Input:
- *     Content copied by user, text only
+ *     Content copied by user, text only.
+ * 
  * Output:
- *     Does not return
+ *     None.
  *     Text is added to the clipboard list if conditions are met
  */
 function readClipboardText(clipboardText) {
