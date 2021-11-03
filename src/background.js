@@ -90,7 +90,7 @@ Function:
     addClipboardList
 Description:
     Adds content to cliboard list
-    Should no be used directly, instead use readClipboardText
+    Should not be used directly, instead use readClipboardText
 
 Input:
     Content copied by user, text only
