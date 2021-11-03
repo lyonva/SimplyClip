@@ -310,14 +310,10 @@ function readingsearchstr() {
             _clipboardList.removeChild(_clipboardList.lastChild);}
             getClipboardText(listName);
     }
-<<<<<<< HEAD
 
 }
 
 document.getElementById('searchbar').addEventListener('keyup', (event)=> readingsearchstr())
-=======
-})
->>>>>>> main
 
 
 
