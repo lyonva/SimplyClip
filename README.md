@@ -1,6 +1,5 @@
 
 ![icon](https://github.com/lalit10/SimplyClip/blob/main/images/paper-clip_32.png)
-# SimplyClip
 
 ![Uptime Robot ratio (30 days)](https://img.shields.io/uptimerobot/ratio/m789313708-ea25af592e8a7a84c009055e)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -11,6 +10,8 @@
 [![Build Status](https://app.travis-ci.com/lalit10/SimplyClip.svg?branch=main)](https://app.travis-ci.com/lalit10/SimplyClip)
 [![Coverage Status](https://coveralls.io/repos/github/lalit10/SimplyClip/badge.svg?branch=main)](https://coveralls.io/github/lalit10/SimplyClip?branch=main)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5542732.svg)](https://doi.org/10.5281/zenodo.5542732)
+
+# SimplyClip
 
 ##  The clipboard made easy for research
 
