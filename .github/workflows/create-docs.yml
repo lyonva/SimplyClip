@@ -23,7 +23,7 @@ jobs:
           recurse: true
           config_file: ./docs/jsdoc/conf.json
           template: docdash
-#           front_page: ./docs/jsdoc/readme.md
+          front_page: ./docs/jsdoc/readme.md
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
