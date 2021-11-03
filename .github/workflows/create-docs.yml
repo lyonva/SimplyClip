@@ -20,7 +20,6 @@ jobs:
         with:
           source_dir: ./src
           output_dir: ./docs
-          config_file: ./docs/conf.json
           template: docdash
           front_page: ./docs/readme.md
 
