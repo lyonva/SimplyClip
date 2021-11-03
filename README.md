@@ -34,13 +34,21 @@ Have multiple things to copy and keep track of? SimplyClipX is here to help you 
     
 
 <!-- https://user-images.githubusercontent.com/11155124/135507262-f26999c1-83b6-4225-9073-6b654ff6d7c0.mp4 -->
-
-
  
-
 ## Features
 
-- Select multiple text snippets from a single tab (or more!) and magically paste all off them!
+### Getting started
+
+Add the Simply Clip Extension on to your Chrome browser.
+<placeholder theme-switch-gif>
+Simply Clip would let you have all your snippets at one place.
+
+### Welcome to the Dark Side
+
+Tired of the old and vanilla white background? Just toggle the switch and enjoy the power of the Dark side!
+<placeholder theme-switch-gif>
+
+     
 - Ability to manage what slection you want to keep or get rid of
 - Chrome Extension popup to manage all your snippets in one streamlined window
 - No more switching tabs, say no to all distractions!!
