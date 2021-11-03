@@ -19,7 +19,7 @@ jobs:
         uses: andstor/jsdoc-action@v1
         with:
           source_dir: ./src
-          output_dir: ./docs
+          output_dir: ./out
           template: docdash
           front_page: ./docs/jsdoc/readme.md
 
@@ -27,4 +27,4 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN  }}
-          publish_dir: ./docs
+          publish_dir: ./out
