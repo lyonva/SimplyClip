@@ -286,12 +286,18 @@ clear_all_btn.addEventListener('click', (event) => {
 }
 )
 
-// Adds event listener to toggle button
-document.getElementById("toggle-button").addEventListener("click", toggleExtension);
+function createButtonListeners() {
+    // Adds event listener to toggle button
+    document.getElementById("toggle-button").addEventListener("click", toggleExtension);
 
-// Adds event listener to dark mode toggle button
-// Connor
-document.getElementById("button").addEventListener("click", toggleTheme);
+    // Adds event listener to dark mode toggle button
+    // Connor
+    document.getElementById("button").addEventListener("click", toggleTheme);
+
+    // Adds event listener to Save File button
+    // Connor
+    document.getElementById("savebutton").addEventListener("click", (e) => { saveClipboardList(LIST_NAME) });
+}
 
 // Turn the app on or off
 // We also remember the previous state
@@ -369,10 +375,6 @@ function getTheme() {
     });
 }
 
-// Adds event listener to Save File button
-// Connor
-document.getElementById("savebutton").addEventListener("click", (e) => { saveClipboardList(LIST_NAME) });
-
 // Saves clipboard list as a csv file
 // Connor
 function saveClipboardList(listName) {
@@ -412,3 +414,4 @@ function download(filename, text) {
 // Runs startup functions
 getClipboardText(LIST_NAME);
 getTheme();
+createButtonListeners();
