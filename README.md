@@ -42,7 +42,7 @@ Add the Simply Clip Extension on to your Chrome browser.
 <placeholder theme-switch-gif>
 Simply Clip would let you have all your snippets at one place.
 
-## Welcome to the Dark Side
+### Welcome to the Dark Side
 
 Tired of the old and vanilla white background? Just toggle the switch and enjoy the power of the Dark side!
 <placeholder theme-switch-gif>
