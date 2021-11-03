@@ -27,7 +27,7 @@
 
 <nav >
     
-    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#addClipboardList">addClipboardList</a></li><li><a href="global.html#getContentFromClipboard">getContentFromClipboard</a></li><li><a href="global.html#onContextMenuClick">onContextMenuClick</a></li><li><a href="global.html#onCopyMessage">onCopyMessage</a></li><li><a href="global.html#readClipboardText">readClipboardText</a></li><li><a href="global.html#setImageFromLink">setImageFromLink</a></li><li><a href="global.html#setSyncVariables">setSyncVariables</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#addClipboardList">addClipboardList</a></li><li><a href="global.html#createButtonListeners">createButtonListeners</a></li><li><a href="global.html#download">download</a></li><li><a href="global.html#getContentFromClipboard">getContentFromClipboard</a></li><li><a href="global.html#getTheme">getTheme</a></li><li><a href="global.html#onContextMenuClick">onContextMenuClick</a></li><li><a href="global.html#onCopyMessage">onCopyMessage</a></li><li><a href="global.html#readClipboardText">readClipboardText</a></li><li><a href="global.html#saveClipboardList">saveClipboardList</a></li><li><a href="global.html#setImageFromLink">setImageFromLink</a></li><li><a href="global.html#setSyncVariables">setSyncVariables</a></li><li><a href="global.html#toggleTheme">toggleTheme</a></li></ul>
 </nav>
 
 <div id="main">
@@ -221,6 +221,198 @@ Should not be used directly, instead use readClipboardText.</p>
 
     
 
+    <h4 class="name" id="createButtonListeners"><span class="type-signature"></span>createButtonListeners<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="popup.js.html">popup.js</a>, <a href="popup.js.html#line295">line 295</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    <p>Adds event listeners to the toggle extension, toggle theme, and save file buttons</p>
+<p><strong>Input</strong></p>
+<ul>
+<li>None</li>
+</ul>
+<p><strong>Output</strong></p>
+<ul>
+<li>3 event listeners</li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="download"><span class="type-signature"></span>download<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="popup.js.html">popup.js</a>, <a href="popup.js.html#line437">line 437</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    <p>Automates download of clipboard list as a csv file
+Credit goes to DevonTaig - https://stackoverflow.com/users/1069916/devontaig</p>
+<p><strong>Input</strong></p>
+<ul>
+<li>The name of the resulting csv file</li>
+<li>The text that will be added in the csv file</li>
+</ul>
+<p><strong>Output</strong></p>
+<ul>
+<li>A csv file with all the clipboard list contents</li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
     <h4 class="name" id="getContentFromClipboard"><span class="type-signature"></span>getContentFromClipboard<span class="signature">()</span><span class="type-signature"></span></h4>
 
     
@@ -285,6 +477,101 @@ and https://github.com/jeske/BBCodePaste/blob/master/bbcodepaste.js</p>
 <p><strong>Output</strong></p>
 <ul>
 <li>Text content that the user just copied</li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="getTheme"><span class="type-signature"></span>getTheme<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="popup.js.html">popup.js</a>, <a href="popup.js.html#line375">line 375</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    <p>Gets the theme preference the user has set</p>
+<p><strong>Input</strong></p>
+<ul>
+<li>None</li>
+</ul>
+<p><strong>Output</strong></p>
+<ul>
+<li>Sets the theme based off the last known user setting</li>
 </ul>
 </div>
 
@@ -616,6 +903,101 @@ Conditions to add:</p>
 
     
 
+    <h4 class="name" id="saveClipboardList"><span class="type-signature"></span>saveClipboardList<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="popup.js.html">popup.js</a>, <a href="popup.js.html#line411">line 411</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    <p>Saves clipboard list as a csv file</p>
+<p><strong>Input</strong></p>
+<ul>
+<li>None</li>
+</ul>
+<p><strong>Output</strong></p>
+<ul>
+<li>Downloads a csv file with all clipboard list contents</li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
     <h4 class="name" id="setImageFromLink"><span class="type-signature"></span>setImageFromLink<span class="signature">()</span><span class="type-signature"></span></h4>
 
     
@@ -812,6 +1194,101 @@ List of variables:</p>
 
 
         
+            
+
+    
+
+    <h4 class="name" id="toggleTheme"><span class="type-signature"></span>toggleTheme<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="popup.js.html">popup.js</a>, <a href="popup.js.html#line338">line 338</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    <p>Toggles the theme to the opposite of the current (light/dark theme)</p>
+<p><strong>Input</strong></p>
+<ul>
+<li>None</li>
+</ul>
+<p><strong>Output</strong></p>
+<ul>
+<li>Changes the user theme preference to the opposite of the current theme</li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
     
 
     
@@ -831,7 +1308,7 @@ List of variables:</p>
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.4</a> on Wed Nov 03 2021 23:05:36 GMT+0000 (Coordinated Universal Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.4</a> on Wed Nov 03 2021 23:06:00 GMT+0000 (Coordinated Universal Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>
