@@ -23,16 +23,20 @@ SOFTWARE.
 
 let _clipboardList = document.querySelector("#clipboard_list");
 
-
-// Finds all the items in the clipboard Chrome storage and adds them
-// to the list that will be displayed on the UI
 let _flag = 0;
 let search_str = "";
 let LIST_NAME = 'list';
 
-
-// Finds all the items in the clipboard Chrome storage and adds them
-// to the list that will be displayed on the UI
+/**
+ * Finds all the items in the clipboard Chrome storage and adds them to the list
+ * that will be displayed on the UI
+ *
+ * **Input**
+ *  - String of key for chrome storage
+ *
+ * **Output**
+ *  - None
+ */
 function getClipboardText(listName) {
     chrome.storage.sync.get([listName], clipboard => {
         let list = clipboard.list;
@@ -48,17 +52,28 @@ function getClipboardText(listName) {
                     console.log(item);
                     addClipboardListItem(item, listName)})}
                     //searching the text from search bar in clipboard
-            else if (typeof list !== undefined && _flag == 1) {list.forEach(item => {
-                        if (item.toLowerCase().includes(search_str)){
-                            console.log(item);
-                            addClipboardListItem(item, listName)}});}
-                    ;}
-        // }
+            else if (typeof list !== undefined && _flag == 1) {
+                list.forEach(item => {
+                    if (item.toLowerCase().includes(search_str)) {
+                        console.log(item);
+                        addClipboardListItem(item, listName);
+                    }
+                });
+            }
+        }
     });
 }
 
-
-// Displays thumbnail for web links in clipboard
+/**
+ * Displays thumbnail for web links in clipboard
+ *
+ * **Input**
+ *  - Copied link
+ *
+ * **Output**
+ *  - Appropriate image thumbnail associated with the link
+ */
+//
 function getThumbnail(textContent) {
 
     // Displays thumbnail if URL is a YouTube video
@@ -107,7 +122,16 @@ function getThumbnail(textContent) {
         ;
 }
 
-// Adds copied items to UI
+/**
+ * Adds copied items to UI
+ *
+ * **Input**
+ *  - text, The copied text
+ *  - listName, String of key for chrome storage
+ *
+ * **Output**
+ *  - New element is added to UI containing new copied text
+ */
 function addClipboardListItem(text, listName) {
     let { sourceUrl, imageUrl, isVideo } = getThumbnail(text);
 
@@ -228,8 +252,16 @@ function addClipboardListItem(text, listName) {
     });
 }
 
-// For image links, converts them the raw image data before copying to clipboard
-// New data types should also be added here
+/**
+ * For image links, converts them to raw image data before copying to clipboard
+ * New data types should also be added here
+ *
+ * **Input**
+ *  - content, The image link to be converted
+ *
+ * **Output**
+ *  - Converted image is added to the clipboard
+ */
 function convertContentForClipboard(content) {
     if ( content.indexOf('http') == 0 && content.match(/\.(jpeg|jpg|gif|png)$/) != null ) {
         chrome.runtime.sendMessage({event: "pasteImage", content : content});
@@ -239,7 +271,7 @@ function convertContentForClipboard(content) {
             console.log(imageBlob);
             var data = [new ClipboardItem({[imageBlob.type] : imageBlob})];
             navigator.clipboard.write( data ).then(function () {
-                // Sucess
+                // Success
               }, function (err) {
                 // Not supported, paste url
                 navigator.clipboard.writeText( content );
@@ -305,8 +337,15 @@ function createButtonListeners() {
     document.getElementById("savebutton").addEventListener("click", (e) => { saveClipboardList(LIST_NAME) });
 }
 
-// Turn the app on or off
-// We also remember the previous state
+/**
+ * Turns the extension on or off while remembering its previous state
+ *
+ * **Input**
+ *  - None
+ *
+ * **Output**
+ *  - Opposite of the current active state
+ */
 function toggleExtension() {
     chrome.storage.sync.get("apptoggle", function (result){
         // Invert value
