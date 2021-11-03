@@ -54,17 +54,21 @@ Tired of the old and vanilla white background? Just toggle the switch and enjoy 
 
 ## Setting up the Extension
 
-1.  Get the repsitory using any of the below two methords :
-    - ![Download](https://github.com/lalit10/SimplyClip/blob/main/Docs/images/download-2.png) the ***[repository](https://github.com/lalit10/SimplyClip)*** using Code > Download Zip on our project github page.
+1.  Get the repsitory using any of the below two methods :
+    - Download the repository using Code > Download Zip on our project github page.
     - Clone the reporitory using  ***[GIT](https://git-scm.com)*** 
     ```
-    git clone https://github.com/lalit10/SimplyClip
+    git clone https://github.com/lyonva/SimplyClip
     ```
-1. Manually install Entension using below steps.
-    - Enable the developer mode from Chrome > Settings > extension.
-    - Click on ***load Unpacked*** button and select the root folder of this repository.
+1. Manually install SimplyClip using the following steps:
+    - Head to the extensions page by typing in ```chrome://extensions``` in your browser address bar.
+    <placeholder image-addressbar>
+    - Enable the developer mode by toggling the button on the top right.
+    <placeholder image-devModeToggle>
+    - Click on ***load Unpacked*** button and select the ```src``` folder from this repository.
+    <placeholder image-selectionSRC>
     - Enable the chrome extension. 
-![Extension](https://github.com/lalit10/SimplyClip/blob/main/Docs/images/Extensions.png)
+    <placeholder image-enable>
 
 ## Languages
 
@@ -112,16 +116,6 @@ prettier --write and prettier --check are the most common ways to run Prettier
 
 * ***Professionals/ Casual Users:***: It’s one issue to fill a repetitive and boring form. It’s an entirely another when we fill multiple of such forms with questions with repeating answers. SimplyClip fits really well in such a case where simple text clips can be saved and reused saving time and effort.
 
-## Why
-While working on finding reuse we spent significant amount of time searching and saving text snippets for further evaluation.Such a repetitive workflow sparked an idea of a clipboard workspace to manage all the recent snippets we have collected while researching.This in turn lead to the development of SimplyClip, in which not only clipboard text is saved, but can also be edited and deleted.Future development pipeline includes cross browser compatibility, exporting and cloud functionalities.
-
-## Functions Descriptions
-#### 1. Copying to the extension clipboard :
-Any text copied from the browser page automatically gets copied to the extension's clipboard (given the URL has access to the system clipboard).
-#### 2. Copying to the system clipboard :
-User can select the text chunk to copy from the extension clipboard by simply clicking on the text entry. The entry automatically gets copied into the system clipboard.
-#### 3. Editing the extension clipboard :
-User is even allowed to edit the text entry copied to the extension clipboard. The user can edit the entry by clicking on the pencil icon and edit the text entry. Once edited, the entry gets saved automatically on clicking anywhere outside the focus of the text entry.
 
 ## Troubleshooting
 1) If the text doesn't get copied, please make sure that the page has the permission to access and modify the system clipboard.
@@ -130,10 +124,10 @@ User is even allowed to edit the text entry copied to the extension clipboard. T
 4) If the issue still persists, please consider writing us at simplyclipcedev@gmail.com and we will get back to you as soon as possible.
 5) You're also free to report a bug in our repository and clearly stating the issue that you're facing. Please make sure to follow the guidelines mentioned in CONTRIBUTING.md
 
-## Roadmap
- 
- ![SimplyClip Project Pipeline](https://user-images.githubusercontent.com/11155124/135507724-86cb9b93-e0c5-4188-8688-7f12ff4c6d96.png)
-
+## Releases
+        
+- [v1](https://github.com/lalit10/SimplyClip/releases/tag/1.0.0)
+- Latest: [v2](insert link to our release or chrome store)
 
 ## Contributors
 ---
