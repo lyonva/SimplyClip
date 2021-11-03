@@ -273,6 +273,7 @@ chrome.contextMenus.onClicked.addListener( (clickData) => {
 })
 
 /*
+CURRENTLY UNUSED
 Function:
     Anonymous function
     Runs when paste shortcuts are used
