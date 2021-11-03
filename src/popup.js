@@ -52,8 +52,6 @@ function getClipboardText(listName) {
                         if (item.toLowerCase().includes(search_str)){
                             console.log(item);
                             addClipboardListItem(item, listName)}});}
-
-
                     ;}
         // }
     });
@@ -269,7 +267,6 @@ sb.addEventListener('keyup', (event)=>{
             _clipboardList.removeChild(_clipboardList.lastChild);}
             getClipboardText(listName);
     }
-
 })
 
 
@@ -319,8 +316,16 @@ function toggleExtension() {
     })
 }
 
-// If the user toggles the theme, the theme becomes the opposite
-// Connor
+/*
+Function:
+    toggleTheme
+Description:
+    Toggles the theme to the opposite of the current (light/dark theme)
+Input:
+    None
+Output:
+    Changes the user theme preference to the opposite of the current theme
+ */
 function toggleTheme() {
     var theme = document.getElementById('theme');
     chrome.storage.sync.get(['themetoggle'], function (result) {
@@ -349,8 +354,16 @@ function toggleTheme() {
     });
 }
 
-// Gets the theme preference the user has set
-// Connor
+/*
+Function:
+    getTheme
+Description:
+    Gets the theme preference the user has set
+Input:
+    None
+Output:
+    Sets the theme based off the last known user setting
+ */
 function getTheme() {
     var theme = document.getElementById('theme');
     var button = document.getElementById('button');
@@ -375,10 +388,21 @@ function getTheme() {
     });
 }
 
-// Saves clipboard list as a csv file
-// Connor
-function saveClipboardList(listName) {
-    console.log(listName);
+// Adds event listener to Save File button
+document.getElementById("savebutton").addEventListener("click", saveClipboardList);
+
+/*
+Function:
+    saveClipboardList
+Description:
+    Saves clipboard list as a csv file
+
+Input:
+    None
+Output:
+    Downloads a csv file with all clipboard list contents
+ */
+function saveClipboardList() {
     var today = new Date();
     var date = today.getFullYear() + '-' + (today.getMonth()+1) + '-' + today.getDate();
     var time = today.getHours().toString() + today.getMinutes().toString() + today.getSeconds().toString();
@@ -393,9 +417,18 @@ function saveClipboardList(listName) {
     });
 }
 
-// Function that allows all text in clipboard to be saved as a csv file
-// Credit goes to DevonTaig - https://stackoverflow.com/users/1069916/devontaig
-// Connor
+/*
+Function:
+    download
+Description:
+    Automates download of clipboard list as a csv file
+    Credit goes to DevonTaig - https://stackoverflow.com/users/1069916/devontaig
+Input:
+    The name of the resulting csv file
+    The text that will be added in the csv file
+Output:
+    A csv file with all the clipboard list contents
+ */
 function download(filename, text) {
     var pom = document.createElement('a');
     pom.setAttribute('href', 'data:text/plain;charset=utf-8,' +
