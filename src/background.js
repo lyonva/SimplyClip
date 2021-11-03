@@ -90,7 +90,7 @@ Function:
     addClipboardList
 Description:
     Adds content to cliboard list
-    Should no be used directly, instead use readClipboardText
+    Should not be used directly, instead use readClipboardText
 
 Input:
     Content copied by user, text only
@@ -271,3 +271,62 @@ chrome.contextMenus.onClicked.addListener( (clickData) => {
         readClipboardText(clickData.linkUrl);
     }
 })
+
+/*
+Function:
+    Anonymous function
+    Runs when paste shortcuts are used
+Description:
+    Paste item from clipboard based on the position passed in shortcut
+    Does not work as intended.
+    Currently only shows the output to the background page.
+    More commands (upto 10) to be added.
+Input:
+    None
+Output:
+    None
+ */
+chrome.commands.onCommand.addListener(function (command) {
+    switch (command) {
+        case 'paste_first':
+            paste(0);
+            break;
+        case 'paste_second':
+            paste(1);
+            break;
+        default:
+            console.log(`Command ${command} not found`);
+    }
+});
+
+
+/*
+Function:
+    Anonymous function
+    Helper function
+Description:
+    Paste item from clipboard based on the position
+    Does not work as intended.
+    Currently only shows the output to the background page.
+    More commands (upto 10) to be added.
+Input:
+    position of list item
+Output:
+    None
+ */
+function paste(pos) {
+    chrome.storage.sync.get(["list"], clipboard => {
+        let list = clipboard.list;
+        console.log(pos, list[pos]);
+        // insert_text(list[pos]);
+    });
+}
+
+
+function insert_text(text) {
+    /*
+    1) get document active area from popup
+    2) put focus on it
+    3) insert the text onto active area
+    */
+}
