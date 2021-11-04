@@ -4,6 +4,7 @@ import sys, os
 from selenium import webdriver
 
 app_id = "neoiebfjgggmmibjefmamjbjkajdgcei"
+app_popup_page = f'chrome-extension://{app_id}/popup.html'
 
 def get_driver():
     """
@@ -21,5 +22,5 @@ def get_driver():
 
 
     driver = webdriver.Chrome(chrome_options=chop)
-    driver.get(f'chrome-extension://{app_id}/popup.html')
+    driver.get(app_popup_page)
     return driver
