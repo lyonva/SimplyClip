@@ -40,20 +40,21 @@ let _maxListSize = 100; // Maximum size of the list
  * From https://arndom.hashnode.dev/how-to-add-a-context-menu-to-your-chrome-extension-in-react
  * Added so we get actions for storing links and images in the clipboard
  */
-// Create context menu to copy images
-chrome.contextMenus.create({
-    "id": "copyImageClippy", // Unique id for menu
-    "title": "Copy image to SimplyClip", // What appears in the menu
-    "contexts": ['image']  // to make this appear only when user selects an image on page
-});
+chrome.runtime.onInstalled.addListener(() => {
+    // Create context menu to copy images
+    chrome.contextMenus.create({
+        "id": "copyImageClippy", // Unique id for menu
+        "title": "Copy image to SimplyClip", // What appears in the menu
+        "contexts": ['image']  // to make this appear only when user selects an image on page
+    });
 
-// Create context menu to copy links
-chrome.contextMenus.create({
-    "id": "copyLink",   // Unique id for menu
-    "title": "Copy link to SimplyClip", // What appears in the menu
-    "contexts":["link"], // to make this appear only when user selects an hyperlink on page
+    // Create context menu to copy links
+    chrome.contextMenus.create({
+        "id": "copyLink",   // Unique id for menu
+        "title": "Copy link to SimplyClip", // What appears in the menu
+        "contexts": ["link"] // to make this appear only when user selects an hyperlink on page
+    });
 });
-
 
 /**
  * Checks if clipboardtext can be added and ads it if so.
@@ -62,10 +63,10 @@ chrome.contextMenus.create({
  *  1. App must be toggled on
  *  2. Copied text must be non-empty
  *  3. Must be different from last read entry
- * 
+ *
  * **Input**
  *  - Content copied by user, text only.
- * 
+ *
  * **Output**
  *  - None
  *  - Text is added to the clipboard list if conditions are met
@@ -87,10 +88,10 @@ function readClipboardText(clipboardText) {
 /**
  * Adds content to cliboard list.
  * Should not be used directly, instead use readClipboardText.
- * 
+ *
  * **Input**
  *  - Content copied by user, text only
- * 
+ *
  * **Output**
  *  - None
  *  - Text is added to the clipboard list if conditions are met
@@ -126,11 +127,11 @@ const addClipboardList = async (clipText)=>{
  *     Creates a mock page to paste clipboard content and get it.
  *     Created from https://stackoverflow.com/questions/22702446/how-to-get-clipboard-data-in-chrome-extension
  *     and https://github.com/jeske/BBCodePaste/blob/master/bbcodepaste.js
- * 
+ *
  * **Input**
  *  - None
  *  - Requires browser clipboard to have something in it
- * 
+ *
  * **Output**
  *  - Text content that the user just copied
  */
@@ -161,13 +162,13 @@ function getContentFromClipboard() {
 
 /**
  * CURRENTLY UNUSED.
- * 
+ *
  * Take and image url and save it on the clipboard.
  * This is done by converting it to base 64 data.
- * 
+ *
  * **Input**
  *  - URL, must be pointing to an image resource
- * 
+ *
  * **Output**
  *  - None
  *  - Image data is converted to base64 and saved to clipboard
@@ -195,12 +196,12 @@ function setImageFromLink( url ) {
  * List of variables:
  * 1. apptoggle: determines if the app captures from clipboard actions
  * 2. list: History of items copied from the clipboard
- * 
- * 
- * 
+ *
+ *
+ *
  * **Input**
  *  - None
- * 
+ *
  * **Output**
  *  - None
  *  - The variables are created on sync storage
@@ -229,10 +230,10 @@ chrome.runtime.onInstalled.addListener( setSyncVariables )
 /**
  * When user triggers a copy, capture the content they just copied
  * and save it into the clipboard
- * 
+ *
  * **Input**
  *  - None
- * 
+ *
  * **Output**
  *  - None
  *  - If conditions are met, the text is stored into the clipboard
@@ -249,10 +250,10 @@ chrome.runtime.onMessage.addListener(onCopyMessage);
 
 /**
  * Push link or image to the clipboard list.
- * 
+ *
  * **Input**
  *  - None
- * 
+ *
  * **Output**
  *  - None
  *  - If conditions are met, the text is stored into the clipboard
