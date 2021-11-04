@@ -22,5 +22,5 @@
 |.4|test cases:.a large proportion of the issues related to handling failing cases. |Created [bug issues and fixed bugs](https://github.com/lyonva/SimplyClip/issues?q=label%3Abug+is%3Aclosed).|
 |.5|test cases are routinely executed |E.g. travis-com.com or github actions or something|
 |1|Documentation describing how this version improves on the older version |Check [README.md](https://github.com/lyonva/SimplyClip#readme)|
-|3|This version is a little(1), some(2), much(3) improved on the last version.|Significant features have been added to extension, available on our [README.md](https://github.com/lyonva/SimplyClip#readme)|
+|3|This version is a little(1), some(2), much(3) improved on the last version.|Significant features have been added to extension, available on our [README.md](https://github.com/lyonva/SimplyClip#improvements-of-this-version-compared-to-the-previous-one)|
 |15.5| Total|
