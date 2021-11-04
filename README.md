@@ -136,6 +136,23 @@ Enanble the extension to work on multiple browsers such as Firefox, Safari, etc.
 
 Enable the extension to work in sync with the system clipboard so that the content can be switched across browsers.
 
+## Improvements of this version compared to the previous one
+
+### Adding new features
+
+-   Adding a search bar for the list of copied items
+-   Adding a button to clear all of the copied items list
+-   Adding Dark mode
+-   Adding a save button to export the list into CSV file
+-   Adding a button to disable the extension
+-   Clipping an Image
+
+### Fixing issues that were in the previous version:
+-   Recognizing URL copying 
+-   Fixing multiple bugs
+-   There was basically no documentation in the code at all, now all of the code is documented.
+
+
 ## Contributors
 
 ---
