@@ -30,7 +30,6 @@ Have multiple things to copy and keep track of? SimplyClip is here to help you o
 <placeholder UI-gif>
 
 
-<!-- https://user-images.githubusercontent.com/11155124/135507262-f26999c1-83b6-4225-9073-6b654ff6d7c0.mp4 -->
 
 ## Getting started
 
@@ -83,8 +82,13 @@ Turn off SimplyClip by clicking on the SimplyClip icon.
 1.  Manually install SimplyClip using the following steps:
     -   Head to the extensions page by typing in `chrome://extensions` in your browser address bar.
     -   Enable the developer mode by toggling the button on the top right.
-    -   Click on **_load Unpacked_** button and select the `src` folder from this repository.
-    -   Enable the chrome extension.
+    ![developer mode](https://github.com/lyonva/SimplyClip/blob/main/docs/images/dev_toggle.PNG)
+    -   Click on **_load Unpacked_** button.
+    ![load unpacked](https://github.com/lyonva/SimplyClip/blob/main/docs/images/load_unpacked.PNG)
+    - Select the `src` folder from this repository.
+    ![src dir](https://github.com/lyonva/SimplyClip/blob/main/docs/images/select_src.PNG)
+    - Enable the chrome extension.
+    
 
 ## Troubleshooting
 
