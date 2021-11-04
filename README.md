@@ -79,19 +79,20 @@ Tired of the old and vanilla white background? Just toggle the switch and enjoy 
 ### Save Me..
 
 Just press the Save List button on SimplyClip and get your content saved as a CSV file on your local machine.
-![Save_Me](docs/images/GIFs/Save file.gif)
+
+![Save_Me](docs/images/GIFs/Savefile.gif)
 
 ### Clip an Image
 
 Want to clip an Image to the clipboard? Well, now you can using SimplyClip. Right click on the image and select Copy to Clipboard. Your image would right away be copied to the clipboard.
 
-![Clip_Image](docs/images/GIFs/Copy image.gif)
+![Clip_Image](docs/images/GIFs/Copyimage.gif)
 
 ### Want a Break?
 
 Turn off SimplyClip by clicking on the SimplyClip icon.
 
-![Break](docs/images/GIFs/Extension toggle.gif)
+![Break](docs/images/GIFs/Extensiontoggle.gif)
     
 ## Setting up the Extension
 
