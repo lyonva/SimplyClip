@@ -59,6 +59,7 @@ Delete all the content added to the clipboard with a single button press. You co
 <!-- ![DeleteAll](docs/images/GIFs/Delete%20all.gif)
 ![DeleteOne](docs/images/GIFs/Delete%20one.gif) -->
 <hr>
+
 ### Edit Text
 
 Simply Clip allows you to customize the text copied to the clipboard. Just press the edit button right next to the copied text and change the content without an Hashle.
