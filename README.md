@@ -138,19 +138,19 @@ Enable the extension to work in sync with the system clipboard so that the conte
 
 ## Improvements of this version compared to the previous one
 
-### Adding new features
+###  Added features
 
--   Adding a search bar for the list of copied items
--   Adding a button to clear all of the copied items list
--   Adding Dark mode
--   Adding a save button to export the list into CSV file
--   Adding a button to disable the extension
--   Clipping an Image
+-   search bar for the list of copied items
+-   button to clear all of the copied items list
+-   dark mode
+-   save button to export the list into CSV file
+-   button to disable the extension temporarily 
+-   clipping an Image
 
 ### Fixing issues that were in the previous version:
--   Recognizing Hyperlink copying 
--   Fixing multiple bugs
--   There was basically no documentation in the code at all, now all of the code is documented.
+-   recognizing Hyperlink copying 
+-   fixing multiple bugs
+-   there was basically no documentation in the code at all, now all of the code is documented.
 
 
 ## Contributors
