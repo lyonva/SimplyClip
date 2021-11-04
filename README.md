@@ -145,7 +145,7 @@ Enable the extension to work in sync with the system clipboard so that the conte
 -   dark mode
 -   save button to export the list into CSV file
 -   button to disable the extension temporarily 
--   clipping an Image
+-   clipping an image
 
 ### Fixing issues that were in the previous version
 -   recognizing Hyperlink copying 
