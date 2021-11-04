@@ -147,7 +147,7 @@ Enable the extension to work in sync with the system clipboard so that the conte
 -   button to disable the extension temporarily 
 -   clipping an Image
 
-### Fixing issues that were in the previous version:
+### Fixing issues that were in the previous version
 -   recognizing Hyperlink copying 
 -   fixing multiple bugs
 -   there was basically no documentation in the code at all, now all of the code is documented.
