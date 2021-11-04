@@ -16,11 +16,6 @@
 [![DOI](https://zenodo.org/badge/417197078.svg)](https://zenodo.org/badge/latestdoi/417197078)
 
 
-<placeholder builds>
-<placeholder doi>
-<placeholder tests>
-
-
 > Don’t work longer hours, instead make the hours worth more – focus your efforts to get more done in the same period. - Henry Ford
 
 SimplyClip is an extension for chromium based browsers which enables users to have a simple and convenient place to manage their clipboard.
