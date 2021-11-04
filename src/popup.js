@@ -37,8 +37,8 @@ let LIST_NAME = 'list';
  * **Output**
  *  - None
  */
-function getClipboardText(listName) {
-    chrome.storage.sync.get([listName], clipboard => {
+function getClipboardText() {
+    chrome.storage.sync.get(["list"], clipboard => {
         let list = clipboard.list;
         let emptyDiv = document.getElementById('empty-div');
         if (list === undefined || list.length === 0) {
@@ -50,13 +50,15 @@ function getClipboardText(listName) {
             if (typeof list !== undefined && _flag == 0){
                 list.forEach(item => {
                     console.log(item);
-                    addClipboardListItem(item, listName)})}
+                    addClipboardListItem(item, "list")
+                })
+            }
                     //searching the text from search bar in clipboard
             else if (typeof list !== undefined && _flag == 1) {
                 list.forEach(item => {
                     if (item.toLowerCase().includes(search_str)) {
                         console.log(item);
-                        addClipboardListItem(item, listName);
+                        addClipboardListItem(item, "list");
                     }
                 });
             }
@@ -127,12 +129,11 @@ function getThumbnail(textContent) {
  *
  * **Input**
  *  - text, The copied text
- *  - listName, String of key for chrome storage
  *
  * **Output**
  *  - New element is added to UI containing new copied text
  */
-function addClipboardListItem(text, listName) {
+function addClipboardListItem(text) {
     let { sourceUrl, imageUrl, isVideo } = getThumbnail(text);
 
     // Creates HTML elements for each item in the clipboard list
@@ -185,11 +186,11 @@ function addClipboardListItem(text, listName) {
         event.target.setAttribute("contenteditable", "false");
         newText = event.target.textContent;
         console.log(newText);
-        chrome.storage.sync.get([listName], clipboard => {
+        chrome.storage.sync.get(["list"], clipboard => {
             let list = clipboard.list;
             let index = list.indexOf(prevText);
             list[index] = newText;
-            chrome.storage.sync.set({ listName: list }, () => { console.log("Text updated"); });
+            chrome.storage.sync.set({ "list": list }, () => { console.log("Text updated"); });
         })
     })
     listDiv.classList.add("list-div");
@@ -220,7 +221,7 @@ function addClipboardListItem(text, listName) {
     // Event listener that allows for item to be deleted from clipboard UI list
     deleteImage.addEventListener('click', (event) => {
         console.log("Delete clicked");
-        chrome.storage.sync.get([listName], clipboard => {
+        chrome.storage.sync.get(["list"], clipboard => {
             let list = clipboard.list;
             console.log(list);
             let index = list.indexOf(text);
@@ -228,10 +229,10 @@ function addClipboardListItem(text, listName) {
             list.splice(index, 1);
             console.log(list);
             _clipboardList.innerHTML = "";
-            chrome.storage.sync.set({ listName: list }, function () {
+            chrome.storage.sync.set({ "list": list }, function () {
                 console.log("Removed element");
             });
-            getClipboardText(listName);
+            getClipboardText();
         })
     })
 
@@ -239,9 +240,10 @@ function addClipboardListItem(text, listName) {
     listDiv.addEventListener('click', (event) => {
         let { textContent } = event.target;
         convertContentForClipboard(textContent)
+        .then(() =>
          {
                 console.log(`Text saved to clipboard`);
-                chrome.storage.sync.get([listName], clipboard => {
+                chrome.storage.sync.get(["list"], clipboard => {
                     let list = clipboard.list;
                     let index = list.indexOf(textContent);
                     if (index !== -1)
@@ -249,9 +251,9 @@ function addClipboardListItem(text, listName) {
 
                     list.unshift(textContent);
                     _clipboardList.innerHTML = "";
-                    chrome.storage.sync.set({ listName: list }, () => getClipboardText(listName));
+                    chrome.storage.sync.set({ "list": list }, () => getClipboardText());
                 });
-            };
+            });
         let x = document.getElementById("snackbar");
         x.className = "show";
         setTimeout(function () { x.className = x.className.replace("show", ""); }, 3000);
@@ -297,13 +299,13 @@ sb.addEventListener('keyup', (event)=>{
         _flag = 1;
         while (_clipboardList.firstChild) {
         _clipboardList.removeChild(_clipboardList.lastChild);}
-        getClipboardText(LIST_NAME);
+        getClipboardText();
     }
     else {
         _flag = 0
         while (_clipboardList.firstChild) {
             _clipboardList.removeChild(_clipboardList.lastChild);}
-            getClipboardText(LIST_NAME);
+            getClipboardText();
     }
 })
 
@@ -315,7 +317,7 @@ clear_all_btn.addEventListener('click', (event) => {
     while (_clipboardList.firstChild) {
         _clipboardList.removeChild(_clipboardList.lastChild);
     }
-    chrome.storage.sync.set({ LIST_NAME: [] }, function () {
+    chrome.storage.sync.set({ "list": [] }, function () {
         console.log("Cleared clipboard");
     });
     document.getElementById('empty-div').classList.remove('hide-div');
@@ -451,12 +453,12 @@ function getTheme() {
  * **Output**
  *  - Downloads a csv file with all clipboard list contents
  */
-function saveClipboardList(listName) {
+function saveClipboardList() {
     var today = new Date();
     var date = today.getFullYear() + '-' + (today.getMonth()+1) + '-' + today.getDate();
     var time = today.getHours().toString() + today.getMinutes().toString() + today.getSeconds().toString();
     var dateTime = date + ' ' + time;
-    chrome.storage.sync.get([listName], clipboard => {
+    chrome.storage.sync.get(["list"], clipboard => {
         let list = clipboard.list;
         let result = "";
         if (list !== undefined) {
@@ -514,7 +516,7 @@ function setIcon() {
 }
 
 // Runs startup functions
-getClipboardText(LIST_NAME);
+getClipboardText();
 getTheme();
 createButtonListeners();
 setIcon();
