@@ -36,6 +36,7 @@ SimplyClip would let you have all your snippets at one place.
 ### Get My Snippets
 
 SimplyClip allows you to select text, links and images and adds them to the clipboard. Just select the snippet and perform Copy/Cut and Voila! your content would be copied to the clipboard.
+    
 ![Copy](docs/images/GIFs/Copy.gif)
 
 <hr>
@@ -43,7 +44,8 @@ SimplyClip allows you to select text, links and images and adds them to the clip
 ### Where is that one thing?
 
 Looking for a particular snippet you copied? We got you covered! Search within our search bar and find the one you are looking for.
-![Copy](docs/images/GIFs/Search.gif)
+    
+![Search](docs/images/GIFs/Search.gif)
 
 ### Destroy It All
 
@@ -77,17 +79,19 @@ Tired of the old and vanilla white background? Just toggle the switch and enjoy 
 ### Save Me..
 
 Just press the Save List button on SimplyClip and get your content saved as a CSV file on your local machine.
-![Copy](docs/images/GIFs/Save file.gif)
+![Save_Me](docs/images/GIFs/Save file.gif)
 
 ### Clip an Image
 
 Want to clip an Image to the clipboard? Well, now you can using SimplyClip. Right click on the image and select Copy to Clipboard. Your image would right away be copied to the clipboard.
-![Copy](docs/images/GIFs/Copy image.gif)
+
+![Clip_Image](docs/images/GIFs/Copy image.gif)
 
 ### Want a Break?
 
 Turn off SimplyClip by clicking on the SimplyClip icon.
-![Copy](docs/images/GIFs/Extension toggle.gif)
+
+![Break](docs/images/GIFs/Extension toggle.gif)
     
 ## Setting up the Extension
 
