@@ -33,7 +33,9 @@ Have multiple things to copy and keep track of? SimplyClip is here to help you o
 
 ## Getting started
 
-Add the SimplyClip Extension on to your Chrome browser. <placeholder theme-switch-gif> SimplyClip would let you have all your snippets at one place.
+Add the SimplyClip Extension on to your Chrome browser.
+![Copy](docs/images/GIFs/Copy.gif)
+SimplyClip would let you have all your snippets at one place.
 
 ### Get My Snippets
 
