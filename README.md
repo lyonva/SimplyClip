@@ -37,8 +37,6 @@ SimplyClip allows you to select text, links and images and adds them to the clip
 
 Looking for a particular snippet you copied? We got you covered! Search within our search bar and find the one you are looking for.
 
-### This is not working for me
-
 ### Destroy It All
 
 Delete all the content added to the clipboard with a single button press. You could also delete individual text snippets added to the clipboard.
@@ -52,6 +50,20 @@ Simply Clip allows you to customize the text copied to the clipboard. Just press
 Tired of the old and vanilla white background? Just toggle the switch and enjoy the power of the Dark side!
 
 <placeholder theme-switch-gif>
+
+### Save Me..
+
+Just press the Save List button on SimplyClip and get your content saved as a CSV file on your local machine.
+<placeholder theme-switch-gif>
+    
+### Clip an Image
+
+Want to clip an Image to the clipboard? Well, now you can using SimplyClip. Right click on the image and select Copy to Clipboard. Your image would right away be copied to the clipboard.
+<placeholder theme-switch-gif>
+
+### Want a Break?
+
+Turn off SimplyClip by clicking on the SimplyClip icon. 
 
 ## Setting up the Extension
 
