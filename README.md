@@ -42,15 +42,27 @@ Add the Simply Clip Extension on to your Chrome browser.
 <placeholder theme-switch-gif>
 Simply Clip would let you have all your snippets at one place.
 
+### Get My Snippets
+SimplyClip allows you to select text, links and images and adds them to the clipboard. Just select the snippet and perform Copy/Cut and Voila! your content would be copied to the clipboard. 
+
+
+### Where is that one thing?
+
+Looking for a particular snippet you copied? We got you covered! Search within our search bar and find the one you are looking for.
+
+### This is not working for me
+### Destroy It All
+Delete all the content added to the clipboard with a single button press. You could also delete individual text snippets added to the clipboard.
+    
+### Edit Text
+
+Simply Clip allows you to customize the text copied to the clipboard. Just press the edit button right next to the copied text and change the content without an Hashle.
+
 ### Welcome to the Dark Side
 
 Tired of the old and vanilla white background? Just toggle the switch and enjoy the power of the Dark side!
+    
 <placeholder theme-switch-gif>
-
-     
-- Ability to manage what slection you want to keep or get rid of
-- Chrome Extension popup to manage all your snippets in one streamlined window
-- No more switching tabs, say no to all distractions!!
 
 ## Setting up the Extension
 
@@ -62,13 +74,9 @@ Tired of the old and vanilla white background? Just toggle the switch and enjoy 
     ```
 1. Manually install SimplyClip using the following steps:
     - Head to the extensions page by typing in ```chrome://extensions``` in your browser address bar.
-    <placeholder image-addressbar>
     - Enable the developer mode by toggling the button on the top right.
-    <placeholder image-devModeToggle>
     - Click on ***load Unpacked*** button and select the ```src``` folder from this repository.
-    <placeholder image-selectionSRC>
     - Enable the chrome extension. 
-    <placeholder image-enable>
 
 ## Languages
 
