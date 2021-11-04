@@ -6,6 +6,16 @@ from selenium import webdriver
 app_id = "neoiebfjgggmmibjefmamjbjkajdgcei"
 
 def get_driver():
+    """
+        Function:
+            get_driver
+        Description:
+            Instances a new Chrome driver and returns it
+        Input:
+            None
+        Output:
+            driver - A driver object
+    """
     chop = webdriver.ChromeOptions()
     chop.add_extension("./src.crx")
 

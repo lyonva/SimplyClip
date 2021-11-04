@@ -8,6 +8,16 @@ from utils_test import get_driver
 import time
 
 def test_button_icon():
+    """
+        Function:
+            test_button_icon
+        Description:
+            Test that the toggle icon changes after a click.
+        Input:
+            None
+        Output:
+            driver - A driver object
+    """
     print( sys.path )
     driver = get_driver()
 
@@ -25,4 +35,5 @@ def test_button_icon():
         time.sleep(0.2)
         assert toggle_icon.get_attribute("class") == "icon_on"
 
-
+def test_toggle_off():
+    pass
