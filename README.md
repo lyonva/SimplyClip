@@ -125,7 +125,7 @@ Check out the [online documentation](https://lyonva.github.io/SimplyClip/) if yo
 
 ### **Gimme What I Want**
 
-Functionality that enables clipboard list to be downloaded in multiple file formats like PDF, Word, CSV Etc..
+Functionality that enables clipboard list to be downloaded in multiple file formats like PDF, Word, CSV etc.
 
 ### **Paste What I Want**
 
@@ -133,9 +133,12 @@ Keyboard shortcuts should allow you to paste which item from the clipboard you w
 
 ### **Why Isn't It Where I Want**
 
-Enanble the extension to work on multiple browsers such as Firefox, Safari, etc...
+Enanble the extension to work on multiple browsers such as Firefox, Safari, etc.
         
 ### **Gimme Everything**
+
+
+Enable the extension to work in sync with the system clipboard so that the content can be switched across browsers.
 
 ## Contributors
 
