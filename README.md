@@ -34,30 +34,41 @@ Have multiple things to copy and keep track of? SimplyClipX is here to help you 
     
 
 <!-- https://user-images.githubusercontent.com/11155124/135507262-f26999c1-83b6-4225-9073-6b654ff6d7c0.mp4 -->
-
-
  
 
-## Features
+## Getting started
 
-- Select multiple text snippets from a single tab (or more!) and magically paste all off them!
+Add the Simply Clip Extension on to your Chrome browser.
+<placeholder theme-switch-gif>
+Simply Clip would let you have all your snippets at one place.
+
+### Welcome to the Dark Side
+
+Tired of the old and vanilla white background? Just toggle the switch and enjoy the power of the Dark side!
+<placeholder theme-switch-gif>
+
+     
 - Ability to manage what slection you want to keep or get rid of
 - Chrome Extension popup to manage all your snippets in one streamlined window
 - No more switching tabs, say no to all distractions!!
 
 ## Setting up the Extension
 
-1.  Get the repsitory using any of the below two methords :
-    - ![Download](https://github.com/lalit10/SimplyClip/blob/main/Docs/images/download-2.png) the ***[repository](https://github.com/lalit10/SimplyClip)*** using Code > Download Zip on our project github page.
+1.  Get the repsitory using any of the below two methods :
+    - Download the repository using Code > Download Zip on our project github page.
     - Clone the reporitory using  ***[GIT](https://git-scm.com)*** 
     ```
-    git clone https://github.com/lalit10/SimplyClip
+    git clone https://github.com/lyonva/SimplyClip
     ```
-1. Manually install Entension using below steps.
-    - Enable the developer mode from Chrome > Settings > extension.
-    - Click on ***load Unpacked*** button and select the root folder of this repository.
+1. Manually install SimplyClip using the following steps:
+    - Head to the extensions page by typing in ```chrome://extensions``` in your browser address bar.
+    <placeholder image-addressbar>
+    - Enable the developer mode by toggling the button on the top right.
+    <placeholder image-devModeToggle>
+    - Click on ***load Unpacked*** button and select the ```src``` folder from this repository.
+    <placeholder image-selectionSRC>
     - Enable the chrome extension. 
-![Extension](https://github.com/lalit10/SimplyClip/blob/main/Docs/images/Extensions.png)
+    <placeholder image-enable>
 
 ## Languages
 
@@ -105,16 +116,6 @@ prettier --write and prettier --check are the most common ways to run Prettier
 
 * ***Professionals/ Casual Users:***: It’s one issue to fill a repetitive and boring form. It’s an entirely another when we fill multiple of such forms with questions with repeating answers. SimplyClip fits really well in such a case where simple text clips can be saved and reused saving time and effort.
 
-## Why
-While working on finding reuse we spent significant amount of time searching and saving text snippets for further evaluation.Such a repetitive workflow sparked an idea of a clipboard workspace to manage all the recent snippets we have collected while researching.This in turn lead to the development of SimplyClip, in which not only clipboard text is saved, but can also be edited and deleted.Future development pipeline includes cross browser compatibility, exporting and cloud functionalities.
-
-## Functions Descriptions
-#### 1. Copying to the extension clipboard :
-Any text copied from the browser page automatically gets copied to the extension's clipboard (given the URL has access to the system clipboard).
-#### 2. Copying to the system clipboard :
-User can select the text chunk to copy from the extension clipboard by simply clicking on the text entry. The entry automatically gets copied into the system clipboard.
-#### 3. Editing the extension clipboard :
-User is even allowed to edit the text entry copied to the extension clipboard. The user can edit the entry by clicking on the pencil icon and edit the text entry. Once edited, the entry gets saved automatically on clicking anywhere outside the focus of the text entry.
 
 ## Troubleshooting
 1) If the text doesn't get copied, please make sure that the page has the permission to access and modify the system clipboard.
@@ -123,19 +124,77 @@ User is even allowed to edit the text entry copied to the extension clipboard. T
 4) If the issue still persists, please consider writing us at simplyclipcedev@gmail.com and we will get back to you as soon as possible.
 5) You're also free to report a bug in our repository and clearly stating the issue that you're facing. Please make sure to follow the guidelines mentioned in CONTRIBUTING.md
 
-## Roadmap
- 
- ![SimplyClip Project Pipeline](https://user-images.githubusercontent.com/11155124/135507724-86cb9b93-e0c5-4188-8688-7f12ff4c6d96.png)
-
+## Releases
+        
+- [v1](https://github.com/lalit10/SimplyClip/releases/tag/1.0.0)
+- Latest: [v2](insert link to our release or chrome store)
 
 ## Contributors
 ---
 <table>
   <tr>
-    <td align="center"><a href="https://github.com/Pratyush1184"><img src="https://avatars.githubusercontent.com/u/20305094?v=4" width="75px;" alt=""/><br /><sub><b>Pratyush Vaidya</b></sub></a></td>
-    <td align="center"><a href="https://github.com/apande95"><img src="https://avatars.githubusercontent.com/u/11155124?v=4" width="75px;" alt=""/><br /><sub><b>Anirudh Pande</b></sub></a><br /></td>
-    <td align="center"><a href="https://github.com/lalit10"><img src="https://avatars.githubusercontent.com/u/25183992?v=4" width="75px;" alt=""/><br /><sub><b>Lalit Bangad</b></sub></a><br /></td>
+      <td align="center">
+          <a href="https://github.com/lyonva">
+              <img src="https://avatars.githubusercontent.com/u/77703306?v=4" width="50px;" alt=""/>
+              <br />
+              <sub>
+                  <b>Leo</b>
+              </sub>
+          </a>
+          <br />
+      </td>
+      <td align="center">
+        <a href="https://github.com/ConnorS1110">
+            <img src="https://avatars.githubusercontent.com/u/83387006?v=4" width="50px;" alt=""/>
+            <br />
+            <sub>
+                <b>Connor</b>
+            </sub>
+        </a>
+        <br />
+      </td>
+      <td align="center">
+          <a href="https://github.com/ashwith161">
+              <img src="https://avatars.githubusercontent.com/u/89534400?v=4" width="50px;" alt=""/>
+              <br />
+              <sub>
+                  <b>Ashwith</b>
+              </sub>
+          </a>
+          <br />
+      </td>
+      <td align="center">
+          <a href="https://github.com/Capt-Fluffy-Bug">
+              <img src="https://avatars.githubusercontent.com/u/41867601?v=4" width="50px;" alt=""/>
+              <br />
+              <sub>
+                  <b>Rahul</b>
+              </sub>
+          </a>
+          <br />
+      </td>
+      <td align="center">
+          <a href="https://github.com/vasuagrawal19">
+              <img src="https://avatars.githubusercontent.com/u/26514851?v=4" width="50px;" alt=""/>
+              <br />
+              <sub>
+                  <b>Vasu</b>
+              </sub>
+          </a>
+          <br />
+      </td>
+      <td align="center">
+          <a href="https://github.com/Muhammad-Alahmadi">
+              <img src="https://avatars.githubusercontent.com/u/89359263?v=4" width="50px;" alt=""/>
+              <br />
+              <sub>
+                  <b>Muhammad</b>
+              </sub>
+          </a>
+          <br />
+      </td>
   </tr>
+    
 </table>
 
 ***Enjoy using SimplyClip. Make sure to follow the page for any new updates!*** 
