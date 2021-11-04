@@ -46,7 +46,7 @@ SimplyClip allows you to select text, links and images and adds them to the clip
 Looking for a particular snippet you copied? We got you covered! Search within our search bar and find the one you are looking for.
     
 <p align="center">
-    <img src="docs/images/GIFs/Search.gif"/>
+    <img src="docs/images/GIFs/Search.gif" width="350px"/>
 </p>
     
 ### Destroy It All
@@ -75,7 +75,7 @@ Simply Clip allows you to customize the text copied to the clipboard. Just press
 
 Tired of the old and vanilla white background? Just toggle the switch and enjoy the power of the Dark side!
 <p align="center">
-    <img src="docs/images/GIFs/Dark.gif"/>
+    <img src="docs/images/GIFs/Dark.gif" width="350px"/>
 </p>
 <hr>
 
