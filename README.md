@@ -144,17 +144,20 @@ Enable the extension to work in sync with the system clipboard so that the conte
 
 ###  Added features
 
--   search bar for the list of copied items
--   button to clear all of the copied items list
--   dark mode
--   save button to export the list into CSV file
--   button to disable the extension temporarily 
--   clipping an image
+-   Search bar for the list of copied items.
+-   Button to clear all of the copied items list.
+-   Dark mode.
+-   Context menu options for copying links and images directly.
+-   Save button to export the list into CSV file.
+-   Button to disable the extension temporarily. 
+-   Clipping an image (.png).
 
 ### Fixing issues that were in the previous version
--   recognizing Hyperlink copying 
--   fixing multiple bugs
--   there was basically no documentation in the code at all, now all of the code is documented.
+-   Recognizing hyperlink copying.
+-   Recognizing a copy on the user context menu.
+-   Fixing multiple bugs.
+-   There was basically no documentation in the code at all, now all of the code is documented.
+-   We had to rework the plug-in. Previously everything was done using script injection. Now we use message passing to minimize invasion.
 
 
 ## Contributors
