@@ -290,38 +290,62 @@ function convertContentForClipboard(content) {
     }
 }
 
-// Reading the search string
-let sb= document.getElementById('searchbar');
-sb.addEventListener('keyup', (event)=>{
-    let searchvalue = document.getElementById('searchbar').value.toLowerCase();
-    search_str = searchvalue;
-    if (!search_str == ""){
-        _flag = 1;
-        while (_clipboardList.firstChild) {
-        _clipboardList.removeChild(_clipboardList.lastChild);}
-        getClipboardText();
-    }
-    else {
-        _flag = 0
-        while (_clipboardList.firstChild) {
-            _clipboardList.removeChild(_clipboardList.lastChild);}
-            getClipboardText();
-    }
-})
+
+/**
+ * Reading the search string 
+ * This function reads the text entered in the search bar
+ * 
+ * **Input**
+ *  - This function is executed when the user inputs any data in the search bar
+ * 
+ * **Output**
+ *  - sets the search_str as the data entered in the search bar
+ *  - The flag is set to 1 if any data is entered in the search bar
+ */
+
+ let sb= document.getElementById('searchbar');
+ sb.addEventListener('keyup', (event)=>{
+     let searchvalue = document.getElementById('searchbar').value.toLowerCase();
+     search_str = searchvalue;
+     if (!search_str == ""){
+         _flag = 1;
+         while (_clipboardList.firstChild) {
+         _clipboardList.removeChild(_clipboardList.lastChild);}
+         getClipboardText();
+     }
+     else {
+         _flag = 0
+         while (_clipboardList.firstChild) {
+             _clipboardList.removeChild(_clipboardList.lastChild);}
+             getClipboardText();
+     }
+ })
 
 
-// Clears all the elements in clipboard
-let clear_all_btn = document.getElementById('clear_all_btn')
 
-clear_all_btn.addEventListener('click', (event) => {
-    while (_clipboardList.firstChild) {
-        _clipboardList.removeChild(_clipboardList.lastChild);
-    }
-    chrome.storage.sync.set({ "list": [] }, function () {
-        console.log("Cleared clipboard");
-    });
-    document.getElementById('empty-div').classList.remove('hide-div');
-});
+/**
+ * Clears all the elements in clipboard 
+ * This function clears the clipboard list displayed in the extention and the chrome storage
+ * 
+ * **Input**
+ *  - This function is executed when the user clicks on Clear all button
+ * 
+ * **Output**
+ *  - the chrome storage is cleared
+ *  - All the copied text is removed from the user interface.
+ */
+
+ let clear_all_btn = document.getElementById('clear_all_btn')
+ 
+ clear_all_btn.addEventListener('click', (event) => {
+     while (_clipboardList.firstChild) {
+         _clipboardList.removeChild(_clipboardList.lastChild);
+     }
+     chrome.storage.sync.set({ "list": [] }, function () {
+         console.log("Cleared clipboard");
+     });
+     document.getElementById('empty-div').classList.remove('hide-div');
+ });
 
 /**
  * Adds event listeners to the toggle extension, toggle theme, and save file buttons
