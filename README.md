@@ -86,7 +86,7 @@ Just press the Save List button on SimplyClip and get your content saved as a CS
 
 Want to clip an Image to the clipboard? Well, now you can using SimplyClip. Right click on the image and select Copy to Clipboard. Your image would right away be copied to the clipboard.
 
-![Clip_Image](docs/images/GIFs/Copyimage.gif)
+![Clip_Image](docs/images/GIFs/Copy image.gif)
 
 ### Want a Break?
 
