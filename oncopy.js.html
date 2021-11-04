@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>Home - Documentation</title>
+    <title>oncopy.js - Documentation</title>
     
     
     <script src="scripts/prettify/prettify.js"></script>
@@ -32,35 +32,43 @@
 
 <div id="main">
     
+    <h1 class="page-title">oncopy.js</h1>
+    
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/*
+From: https://stackoverflow.com/questions/2870369/google-chrome-extensions-how-to-detect-copy-action-ctrl-c-and-edit-copy
+*/
 
+// 
 
-    <section class="package">
-        <h3> </h3>		
+/**
+ * Fires a message to the background page whenever the user triggers a copy action.
+ * Does not capture copied content.
+ *
+ * **Input**
+ *  - The event that caused the trigger (unused)
+ *
+ * **Output**
+ *  - None
+ *  - A "copy" message is sent to the background page
+ */
+function onCopy(e) {
+    chrome.runtime.sendMessage({event: "copy"});
+}
+
+// Register event listener for copy events on document
+document.addEventListener('copy', onCopy, true);
+document.addEventListener('cut', onCopy, true);
+</code></pre>
+        </article>
     </section>
-
-
-
-
-
-
-
-
-
-    
-
-
-
-    <section class="readme usertext">
-        <article><p>Hi</p></article>
-    </section>
-
-
 
 
 
