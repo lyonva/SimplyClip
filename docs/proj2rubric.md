@@ -7,7 +7,7 @@
 |.5|Docs: doco generated , format not ugly  |[Check out our online documentation](https://lyonva.github.io/SimplyClip/)|
 |.5|evidence that the whole team is using the same tools (e.g. config files in the repo, updated by lots of different people) |Everyone has same [package.json](https://github.com/lyonva/SimplyClip/blob/main/src/package.json) file and pulls requirement using Node.js|
 |.5|evidence that the members of the team are working across multiple places in the code base |Check [commit history](https://github.com/lyonva/SimplyClip/graphs/commit-activity)|
-|1|Docs: what: point descriptions of each class/function (in isolation)|Check [README.md](https://github.com/lyonva/SimplyClip#readme)|
+|1|Docs: what: point descriptions of each class/function (in isolation)|[Check out our online documentation](https://lyonva.github.io/SimplyClip/)|
 |.4|Number of commits: by different people|Check [commit history](https://github.com/lyonva/SimplyClip/graphs/commit-activity)|
 |1|issues are being closed |[Closed issues](https://github.com/lyonva/SimplyClip/graphs/commit-activity)|
 |.5|issues are discussed before they are closed |Check issue discussions, [example](https://github.com/lyonva/SimplyClip/issues/21)|
