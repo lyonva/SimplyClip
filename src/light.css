@@ -114,6 +114,20 @@ ul li:hover{
     display:block;
     /* Other styles here */
 }
+.icon_on{
+  background: url('images/paper-clip-on.png');
+  height: 32px;
+  width: 32px;
+  display:block;
+  /* Other styles here */
+}
+.icon_off{
+  background: url('images/paper-clip-off.png');
+  height: 32px;
+  width: 32px;
+  display:block;
+  /* Other styles here */
+}
 
 
 #snackbar {

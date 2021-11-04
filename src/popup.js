@@ -366,6 +366,7 @@ function toggleExtension() {
             } else {
                 console.log("Unknown state: ", result)
             }
+            setIcon();
         });
     })
 }
@@ -493,7 +494,27 @@ function download(filename, text) {
     document.body.removeChild(pom);
 }
 
+function setIcon() {
+    
+    chrome.storage.sync.get(["apptoggle"], toggle => {
+        var icon = document.getElementById('toggle-button-icon');
+        
+        if (toggle.apptoggle == 0) {
+            icon.className = "icon_off";
+            console.log("xd");
+        }
+        else if (toggle.apptoggle == 1) {
+            icon.className = "icon_on";
+        }
+        else {
+            icon.className = "icon_off";
+        }
+    })
+
+}
+
 // Runs startup functions
 getClipboardText(LIST_NAME);
 getTheme();
 createButtonListeners();
+setIcon();
