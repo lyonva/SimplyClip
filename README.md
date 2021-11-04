@@ -74,8 +74,9 @@ Simply Clip allows you to customize the text copied to the clipboard. Just press
 ### Welcome to the Dark Side
 
 Tired of the old and vanilla white background? Just toggle the switch and enjoy the power of the Dark side!
-![Dark](docs/images/GIFs/Dark.gif)
-
+<p align="center">
+    <img src="docs/images/GIFs/Dark.gif"/>
+</p>
 <hr>
 
 ### Save Me..
