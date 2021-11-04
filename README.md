@@ -96,7 +96,7 @@ If you're having trouble running the extension, try the following -
 
 1. When loading the extension for the first time, reload the pages for it to recognize the extension.
 2. Consider reloading the extension and all the browser pages.
-3. If the issue still persists, please write to us at simplyclipcedev@gmail.com and we will get back to you as soon as possible.
+3. If the issue still persists, please write to us at simplyclip@outlook.com and we will get back to you as soon as possible.
 
 ## Getting involved
 
