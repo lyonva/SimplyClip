@@ -1,59 +1,48 @@
-
 ![icon](https://github.com/lalit10/SimplyClip/blob/main/images/paper-clip_32.png)
 
-![Uptime Robot ratio (30 days)](https://img.shields.io/uptimerobot/ratio/m789313708-ea25af592e8a7a84c009055e)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-![GitHub issues](https://img.shields.io/github/issues/lalit10/SimplyClip)
-![Test Cases](https://img.shields.io/badge/tests-passing-green)
-![GitHub contributors](https://img.shields.io/github/contributors/lalit10/SimplyClip)
-![GitHub pull requests](https://img.shields.io/github/issues-pr/lalit10/SimplyClip)
-[![Build Status](https://app.travis-ci.com/lalit10/SimplyClip.svg?branch=main)](https://app.travis-ci.com/lalit10/SimplyClip)
-[![Coverage Status](https://coveralls.io/repos/github/lalit10/SimplyClip/badge.svg?branch=main)](https://coveralls.io/github/lalit10/SimplyClip?branch=main)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5542732.svg)](https://doi.org/10.5281/zenodo.5542732)
+![Uptime Robot ratio (30 days)](https://img.shields.io/uptimerobot/ratio/m789313708-ea25af592e8a7a84c009055e) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) ![GitHub issues](https://img.shields.io/github/issues/lalit10/SimplyClip) ![Test Cases](https://img.shields.io/badge/tests-passing-green) ![GitHub contributors](https://img.shields.io/github/contributors/lalit10/SimplyClip) ![GitHub pull requests](https://img.shields.io/github/issues-pr/lalit10/SimplyClip) [![Build Status](https://app.travis-ci.com/lalit10/SimplyClip.svg?branch=main)](https://app.travis-ci.com/lalit10/SimplyClip) [![Coverage Status](https://coveralls.io/repos/github/lalit10/SimplyClip/badge.svg?branch=main)](https://coveralls.io/github/lalit10/SimplyClip?branch=main) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5542732.svg)](https://doi.org/10.5281/zenodo.5542732)
 
-# SimplyClipX
+# SimplyClip
 
 <placeholder builds>
 <placeholder doi>
 <placeholder tests>
- 
+
 
 > Don’t work longer hours, instead make the hours worth more – focus your efforts to get more done in the same period. - Henry Ford
 
+SimplyClip is an extension for chromium based browsers which enables users to have a simple and convenient place to manage their clipboard.
 
-SimplyClipX is an extension for chromium based browsers which enables users to have a simple and convenient place to manage their clipboard.
-    
-Have multiple things to copy and keep track of? SimplyClipX is here to help you out.
+Have multiple things to copy and keep track of? SimplyClip is here to help you out.
 
-- Copy any text, image or link from a web page.
-- Keyboard shortcuts to paste the top 10 items in your clipboard (To be implemented in future).
-- Search through the list of everything that you've copied.
-- Unlimited focus!
- 
+-   Copy any text, image or link from a web page.
+-   Keyboard shortcuts to paste the top 10 items in your clipboard (To be implemented in future).
+-   Search through the list of everything that you've copied.
+-   Unlimited focus!
+
 <placeholder UI-gif>
-    
+
 
 <!-- https://user-images.githubusercontent.com/11155124/135507262-f26999c1-83b6-4225-9073-6b654ff6d7c0.mp4 -->
- 
 
 ## Getting started
 
-Add the Simply Clip Extension on to your Chrome browser.
-<placeholder theme-switch-gif>
-Simply Clip would let you have all your snippets at one place.
+Add the SimplyClip Extension on to your Chrome browser. <placeholder theme-switch-gif> SimplyClip would let you have all your snippets at one place.
 
 ### Get My Snippets
-SimplyClip allows you to select text, links and images and adds them to the clipboard. Just select the snippet and perform Copy/Cut and Voila! your content would be copied to the clipboard. 
 
+SimplyClip allows you to select text, links and images and adds them to the clipboard. Just select the snippet and perform Copy/Cut and Voila! your content would be copied to the clipboard.
 
 ### Where is that one thing?
 
 Looking for a particular snippet you copied? We got you covered! Search within our search bar and find the one you are looking for.
 
 ### This is not working for me
+
 ### Destroy It All
+
 Delete all the content added to the clipboard with a single button press. You could also delete individual text snippets added to the clipboard.
-    
+
 ### Edit Text
 
 Simply Clip allows you to customize the text copied to the clipboard. Just press the edit button right next to the copied text and change the content without an Hashle.
@@ -61,84 +50,67 @@ Simply Clip allows you to customize the text copied to the clipboard. Just press
 ### Welcome to the Dark Side
 
 Tired of the old and vanilla white background? Just toggle the switch and enjoy the power of the Dark side!
-    
+
 <placeholder theme-switch-gif>
 
 ## Setting up the Extension
 
 1.  Get the repsitory using any of the below two methods :
-    - Download the repository using Code > Download Zip on our project github page.
-    - Clone the reporitory using  ***[GIT](https://git-scm.com)*** 
+    -   Download the repository using Code > Download Zip on our project github page.
+    -   Clone the reporitory using **_[GIT](https://git-scm.com)_**
     ```
     git clone https://github.com/lyonva/SimplyClip
     ```
-1. Manually install SimplyClip using the following steps:
-    - Head to the extensions page by typing in ```chrome://extensions``` in your browser address bar.
-    - Enable the developer mode by toggling the button on the top right.
-    - Click on ***load Unpacked*** button and select the ```src``` folder from this repository.
-    - Enable the chrome extension. 
-
-## Languages
-
-- JavaScript
-- HTML
-- CSS
-
-## Software Requirements
-
-- Node.js
-- NPM
-
-## IDE 
-
-- IDE : [VSCode](https://code.visualstudio.com/)
-
-- Code Style Formatter Extension: [Beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
-
-- Code Syntax Checker Extension : [Eslint](https://https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) for Vscode plugin.
-
-VS Code uses js-beautify internally, but it lacks the ability to modify the style you wish to use. This extension enables running js-beautify in VS Code, AND honouring any .jsbeautifyrc file in the open file's path tree to load your code styling. Run with F1 Beautify (to beautify a selection) or F1 Beautify file.
-
-## Style Checker and Analyzer 
-
-- Javascript Standard Style is style guide, linter, and formatter for Javascript and styling means ranking the importance of code clarity.
-- `npx standard --fix ` is used to fix the the style 
-
-## Code Formatter 
-
-### Prettier 
-- Prettier is an opinionated code formatter which will format your code in structured way.
-- `npx prettier --write .` to check the errors in code formating
-- `npx prettier --check .` to check the errors in code formatting but only checks that files are already formatted, rather than overwriting them.
-prettier --write and prettier --check are the most common ways to run Prettier
-
-## Syntax Checker 
-
-### Lint
-- Linting is the automated checking of your source code for programmatic and syntax errors.
-- `npm run lint` to check the linter to check errors in code formatting in the code.
-
-
-## Use Case 
-* ***Students***: Students and Research grads can take out snippets from text for easy reference later. We as grad students recently found ourselves in a position where we had to reference a lot of text snippets while recognizing reuses in research papers, SimplyClip does wonders for speeding up similar workflows.
-
-* ***Professionals/ Casual Users:***: It’s one issue to fill a repetitive and boring form. It’s an entirely another when we fill multiple of such forms with questions with repeating answers. SimplyClip fits really well in such a case where simple text clips can be saved and reused saving time and effort.
-
+1.  Manually install SimplyClip using the following steps:
+    -   Head to the extensions page by typing in `chrome://extensions` in your browser address bar.
+    -   Enable the developer mode by toggling the button on the top right.
+    -   Click on **_load Unpacked_** button and select the `src` folder from this repository.
+    -   Enable the chrome extension.
 
 ## Troubleshooting
-1) If the text doesn't get copied, please make sure that the page has the permission to access and modify the system clipboard.
-2) When loading the extension for the first time, reload the pages in order to allow the URLs to prompt for permissions to access the system clipboard.
-3) If none of the above steps work, consider reloading the extension and all the browser pages.
-4) If the issue still persists, please consider writing us at simplyclipcedev@gmail.com and we will get back to you as soon as possible.
-5) You're also free to report a bug in our repository and clearly stating the issue that you're facing. Please make sure to follow the guidelines mentioned in CONTRIBUTING.md
+
+If you're having trouble running the extension, try the following -
+
+1. When loading the extension for the first time, reload the pages for it to recognize the extension.
+2. Consider reloading the extension and all the browser pages.
+3. If the issue still persists, please write to us at simplyclipcedev@gmail.com and we will get back to you as soon as possible.
+
+## Getting involved
+
+Thank you for caring for this project and getting involved. To start, please check out [contributing](https://github.com/lyonva/SimplyClip/blob/main/CONTRIBUTING.md) and [code of conduct](https://github.com/lyonva/SimplyClip/blob/main/CODE_OF_CONDUCT.md). For more technical detail of implementation of code, you can check out the documentation. When you want to get your hands on the project, take a peek into the [github project](https://github.com/lyonva/SimplyClip/projects/1), assign yourself a task, move it to To-Do, and convert it into an issue and assign it to yourself.
+
+Check out the [online documentation](https://lyonva.github.io/SimplyClip/) if you want to contribute or find out about the inner workings of ScheduleBot.
+
+### Languages
+
+-   JavaScript
+-   HTML
+-   CSS
+
+### Software Requirements
+
+-   Node.js
+-   NPM
 
 ## Releases
-        
-- [v1](https://github.com/lalit10/SimplyClip/releases/tag/1.0.0)
-- Latest: [v2](insert link to our release or chrome store)
+
+-   [v1](https://github.com/lalit10/SimplyClip/releases/tag/1.0.0)
+-   Latest: [v2](insert link to our release or chrome store)
+
+## Future Features
+
+### **Gimme What I Want**
+
+Functionality that enables clipboard list to be downloaded in multiple file formats like PDF, Word, CSV Etc..
+
+### **Paste What I Want**
+
+Keyboard shortcuts should allow you to paste which item from the clipboard you want from the top 10 elements. (Work already in progress on 'rramakr' branch).
 
 ## Contributors
+
 ---
+
 <table>
   <tr>
       <td align="center">
@@ -205,4 +177,4 @@ prettier --write and prettier --check are the most common ways to run Prettier
     
 </table>
 
-***Enjoy using SimplyClip. Make sure to follow the page for any new updates!*** 
+**_Enjoy using SimplyClip. Make sure to follow the page for any new updates!_**
