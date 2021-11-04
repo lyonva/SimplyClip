@@ -34,12 +34,12 @@ Have multiple things to copy and keep track of? SimplyClip is here to help you o
 ## Getting started
 
 Add the SimplyClip Extension on to your Chrome browser.
-![Copy](docs/images/GIFs/Copy.gif)
 SimplyClip would let you have all your snippets at one place.
 
 ### Get My Snippets
 
 SimplyClip allows you to select text, links and images and adds them to the clipboard. Just select the snippet and perform Copy/Cut and Voila! your content would be copied to the clipboard.
+![Copy](docs/images/GIFs/Copy.gif)
 
 ### Where is that one thing?
 
@@ -48,14 +48,18 @@ Looking for a particular snippet you copied? We got you covered! Search within o
 ### Destroy It All
 
 Delete all the content added to the clipboard with a single button press. You could also delete individual text snippets added to the clipboard.
+![DeleteAll](docs/images/GIFs/Delete%20all.gif)
+![DeleteOne](docs/images/GIFs/Delete%20one.gif)
 
 ### Edit Text
 
 Simply Clip allows you to customize the text copied to the clipboard. Just press the edit button right next to the copied text and change the content without an Hashle.
+![Edit](docs/images/GIFs/Edit.gif)
 
 ### Welcome to the Dark Side
 
 Tired of the old and vanilla white background? Just toggle the switch and enjoy the power of the Dark side!
+![Dark](docs/images/GIFs/Dark.gif)
 
 <placeholder theme-switch-gif>
 
