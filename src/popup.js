@@ -222,10 +222,16 @@ function addClipboardListItem(text, listName) {
         console.log("Delete clicked");
         chrome.storage.sync.get([listName], clipboard => {
             let list = clipboard.list;
+            console.log(list);
             let index = list.indexOf(text);
+            console.log(index);
             list.splice(index, 1);
+            console.log(list);
             _clipboardList.innerHTML = "";
-            chrome.storage.sync.set({ listName: list }, () => getClipboardText(listName));
+            chrome.storage.sync.set({ listName: list }, function () {
+                console.log("Removed element");
+            });
+            getClipboardText(listName);
         })
     })
 
@@ -309,11 +315,11 @@ clear_all_btn.addEventListener('click', (event) => {
     while (_clipboardList.firstChild) {
         _clipboardList.removeChild(_clipboardList.lastChild);
     }
-    chrome.storage.sync.clear();
+    chrome.storage.sync.set({ LIST_NAME: [] }, function () {
+        console.log("Cleared clipboard");
+    });
     document.getElementById('empty-div').classList.remove('hide-div');
-
-}
-)
+});
 
 /**
  * Adds event listeners to the toggle extension, toggle theme, and save file buttons
@@ -435,9 +441,6 @@ function getTheme() {
     });
 }
 
-// Adds event listener to Save File button
-document.getElementById("savebutton").addEventListener("click", saveClipboardList);
-
 /**
  * Saves clipboard list as a csv file
  *
@@ -447,7 +450,7 @@ document.getElementById("savebutton").addEventListener("click", saveClipboardLis
  * **Output**
  *  - Downloads a csv file with all clipboard list contents
  */
-function saveClipboardList() {
+function saveClipboardList(listName) {
     var today = new Date();
     var date = today.getFullYear() + '-' + (today.getMonth()+1) + '-' + today.getDate();
     var time = today.getHours().toString() + today.getMinutes().toString() + today.getSeconds().toString();
