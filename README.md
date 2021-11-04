@@ -148,7 +148,7 @@ Enable the extension to work in sync with the system clipboard so that the conte
 -   Clipping an Image
 
 ### Fixing issues that were in the previous version:
--   Recognizing URL copying 
+-   Recognizing Hyperlink copying 
 -   Fixing multiple bugs
 -   There was basically no documentation in the code at all, now all of the code is documented.
 
