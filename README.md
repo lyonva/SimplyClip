@@ -1,4 +1,3 @@
-<!-- ![icon](https://github.com/lyonva/SimplyClip/blob/main/src/images/logo.png) -->
 <p align="center">
     <img src="https://github.com/lyonva/SimplyClip/blob/main/src/images/logo.png" />
 </p>
