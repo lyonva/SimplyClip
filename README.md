@@ -43,6 +43,7 @@ SimplyClip allows you to select text, links and images and adds them to the clip
 ### Where is that one thing?
 
 Looking for a particular snippet you copied? We got you covered! Search within our search bar and find the one you are looking for.
+![Copy](docs/images/GIFs/Search.gif)
 
 ### Destroy It All
 
@@ -63,6 +64,7 @@ Delete all the content added to the clipboard with a single button press. You co
 ### Edit Text
 
 Simply Clip allows you to customize the text copied to the clipboard. Just press the edit button right next to the copied text and change the content without an hassle.<br />
+    
 ![Edit](docs/images/GIFs/Edit.gif)
 
 ### Welcome to the Dark Side
@@ -75,17 +77,18 @@ Tired of the old and vanilla white background? Just toggle the switch and enjoy 
 ### Save Me..
 
 Just press the Save List button on SimplyClip and get your content saved as a CSV file on your local machine.
-<placeholder theme-switch-gif>
+![Copy](docs/images/GIFs/Save file.gif)
 
 ### Clip an Image
 
 Want to clip an Image to the clipboard? Well, now you can using SimplyClip. Right click on the image and select Copy to Clipboard. Your image would right away be copied to the clipboard.
-<placeholder theme-switch-gif>
+![Copy](docs/images/GIFs/Copy image.gif)
 
 ### Want a Break?
 
 Turn off SimplyClip by clicking on the SimplyClip icon.
-
+![Copy](docs/images/GIFs/Extension toggle.gif)
+    
 ## Setting up the Extension
 
 1.  Get the repsitory using any of the below two methods :
