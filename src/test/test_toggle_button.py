@@ -5,7 +5,7 @@ os.chdir(os.path.dirname(__file__))
 # sys.path.append(os.path.realpath(os.path.dirname(__file__)+"/src/test"))
 
 from utils_test import get_driver
-
+import time
 
 def test_button_icon():
     print( sys.path )
@@ -13,7 +13,16 @@ def test_button_icon():
 
     toggle_button = driver.find_element_by_id("toggle-button")
     toggle_icon = driver.find_element_by_id("toggle-button-icon")
+    
+    assert toggle_icon.get_attribute("class") == "icon_on"
 
-    toggle_button.click()
+    for i in range(10):
+        toggle_button.click()
+        time.sleep(0.2)
+        assert toggle_icon.get_attribute("class") == "icon_off"
+
+        toggle_button.click()
+        time.sleep(0.2)
+        assert toggle_icon.get_attribute("class") == "icon_on"
 
 

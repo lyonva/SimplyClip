@@ -3,11 +3,13 @@ import sys, os
 
 from selenium import webdriver
 
+app_id = "neoiebfjgggmmibjefmamjbjkajdgcei"
+
 def get_driver():
     chop = webdriver.ChromeOptions()
     chop.add_extension("./src.crx")
 
 
     driver = webdriver.Chrome(chrome_options=chop)
-    driver.get('chrome-extension://neoiebfjgggmmibjefmamjbjkajdgcei/popup.html')
+    driver.get(f'chrome-extension://{app_id}/popup.html')
     return driver
