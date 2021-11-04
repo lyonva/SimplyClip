@@ -8,7 +8,12 @@ from utils_test import get_driver
 import time
 
 def test_button_icon():
-    print( sys.path )
+    """
+        Function:
+            test_button_icon
+        Description:
+            Test that the toggle icon changes after a click.
+    """
     driver = get_driver()
 
     toggle_button = driver.find_element_by_id("toggle-button")
@@ -25,4 +30,18 @@ def test_button_icon():
         time.sleep(0.2)
         assert toggle_icon.get_attribute("class") == "icon_on"
 
+def test_toggle_off():
+    """
+        Function:
+            test_toggle_off
+        Description:
+            Test that the toggle disables the extension.
+    """
+    driver = get_driver()
 
+    # Turn the extension off
+    toggle_button = driver.find_element_by_id("toggle-button")
+    toggle_button.click()
+
+    # Navigate to a page and copy text
+    
