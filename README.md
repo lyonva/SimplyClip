@@ -96,11 +96,11 @@ Turn off SimplyClip by clicking on the SimplyClip icon.
     ```
 1.  Manually install SimplyClip using the following steps:
     -   Head to the extensions page by typing in `chrome://extensions` in your browser address bar.
-    -   Enable the developer mode by toggling the button on the top right.
+    -   Enable the developer mode by toggling the button on the top right.<br />
         ![developer mode](https://github.com/lyonva/SimplyClip/blob/main/docs/images/dev_toggle.PNG)
-    -   Click on **_load Unpacked_** button.
+    -   Click on **_load Unpacked_** button.<br />
         ![load unpacked](https://github.com/lyonva/SimplyClip/blob/main/docs/images/load_unpacked.PNG)
-    -   Select the `src` folder from this repository.
+    -   Select the `src` folder from this repository.<br />
         ![src dir](https://github.com/lyonva/SimplyClip/blob/main/docs/images/select_src.PNG)
     -   Enable the chrome extension.
 
