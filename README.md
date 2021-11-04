@@ -1,4 +1,4 @@
-![icon](https://github.com/lyonva/SimplyClip/blob/main/src/images/paper-clip_128.png)
+![icon](https://github.com/lyonva/SimplyClip/blob/main/src/images/logo.png)
  
 
 
