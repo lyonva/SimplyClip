@@ -291,13 +291,13 @@ sb.addEventListener('keyup', (event)=>{
         _flag = 1;
         while (_clipboardList.firstChild) {
         _clipboardList.removeChild(_clipboardList.lastChild);}
-        getClipboardText(listName);
+        getClipboardText(LIST_NAME);
     }
     else {
         _flag = 0
         while (_clipboardList.firstChild) {
             _clipboardList.removeChild(_clipboardList.lastChild);}
-            getClipboardText(listName);
+            getClipboardText(LIST_NAME);
     }
 })
 
@@ -455,10 +455,12 @@ function saveClipboardList() {
     chrome.storage.sync.get([listName], clipboard => {
         let list = clipboard.list;
         let result = "";
-        for (i = 0; i < list.length; i++){
-            result += "\"" + list[i] + "\",\n";
+        if (list !== undefined) {
+            for (i = 0; i < list.length; i++){
+                result += "\"" + list[i] + "\",\n";
+            }
+            download("Clipboard " + dateTime + ".csv", result);
         }
-        download("Clipboard " + dateTime + ".csv", result);
     });
 }
 
