@@ -62,7 +62,7 @@ Delete all the content added to the clipboard with a single button press. You co
 
 ### Edit Text
 
-Simply Clip allows you to customize the text copied to the clipboard. Just press the edit button right next to the copied text and change the content without an Hashle.
+Simply Clip allows you to customize the text copied to the clipboard. Just press the edit button right next to the copied text and change the content without an hassle.<br />
 ![Edit](docs/images/GIFs/Edit.gif)
 
 ### Welcome to the Dark Side
