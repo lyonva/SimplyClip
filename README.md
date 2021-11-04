@@ -74,13 +74,9 @@ Tired of the old and vanilla white background? Just toggle the switch and enjoy 
     ```
 1. Manually install SimplyClip using the following steps:
     - Head to the extensions page by typing in ```chrome://extensions``` in your browser address bar.
-    <placeholder image-addressbar>
     - Enable the developer mode by toggling the button on the top right.
-    <placeholder image-devModeToggle>
     - Click on ***load Unpacked*** button and select the ```src``` folder from this repository.
-    <placeholder image-selectionSRC>
     - Enable the chrome extension. 
-    <placeholder image-enable>
 
 ## Languages
 
