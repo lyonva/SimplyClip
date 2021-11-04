@@ -239,24 +239,26 @@ function addClipboardListItem(text) {
     // Event listener that allows text to be copied when it is clicked on UI
     listDiv.addEventListener('click', (event) => {
         let { textContent } = event.target;
-        convertContentForClipboard(textContent)
-        .then(() =>
-         {
-                console.log(`Text saved to clipboard`);
-                chrome.storage.sync.get(["list"], clipboard => {
-                    let list = clipboard.list;
-                    let index = list.indexOf(textContent);
-                    if (index !== -1)
-                        list.splice(index, 1);
-
-                    list.unshift(textContent);
-                    _clipboardList.innerHTML = "";
-                    chrome.storage.sync.set({ "list": list }, () => getClipboardText());
-                });
-            });
+        convertContentForClipboard(textContent);
+        
+        // Show the popup for 3 seconds
         let x = document.getElementById("snackbar");
         x.className = "show";
         setTimeout(function () { x.className = x.className.replace("show", ""); }, 3000);
+        
+        // Push selected item to the top
+        console.log(`Text saved to clipboard`);
+        chrome.storage.sync.get(["list"], clipboard => {
+            let list = clipboard.list;
+            let index = list.indexOf(textContent);
+            if (index !== -1)
+                list.splice(index, 1);
+
+            list.unshift(textContent);
+            _clipboardList.innerHTML = "";
+            chrome.storage.sync.set({ "list": list }, () => getClipboardText());
+        });
+        
     });
 }
 
