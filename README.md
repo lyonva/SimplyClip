@@ -114,7 +114,7 @@ Check out the [online documentation](https://lyonva.github.io/SimplyClip/) if yo
 ## Releases
 
 - [v1.0](https://github.com/lalit10/SimplyClip/releases/tag/1.0.0)
-- [v1.1](insert link to our release or chrome store)
+- [v1.1](https://github.com/lyonva/SimplyClip/releases/tag/1.1.0)
 - Latest:[v2.0](link to our release or chrome store)
 
 ## Future Features
