@@ -27,7 +27,7 @@
 
 <nav >
     
-    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#addClipboardList">addClipboardList</a></li><li><a href="global.html#addClipboardListItem">addClipboardListItem</a></li><li><a href="global.html#convertContentForClipboard">convertContentForClipboard</a></li><li><a href="global.html#createButtonListeners">createButtonListeners</a></li><li><a href="global.html#download">download</a></li><li><a href="global.html#getClipboardText">getClipboardText</a></li><li><a href="global.html#getContentFromClipboard">getContentFromClipboard</a></li><li><a href="global.html#getTheme">getTheme</a></li><li><a href="global.html#getThumbnail">getThumbnail</a></li><li><a href="global.html#onContextMenuClick">onContextMenuClick</a></li><li><a href="global.html#onCopy">onCopy</a></li><li><a href="global.html#onCopyMessage">onCopyMessage</a></li><li><a href="global.html#readClipboardText">readClipboardText</a></li><li><a href="global.html#saveClipboardList">saveClipboardList</a></li><li><a href="global.html#setImageFromLink">setImageFromLink</a></li><li><a href="global.html#setSyncVariables">setSyncVariables</a></li><li><a href="global.html#toggleExtension">toggleExtension</a></li><li><a href="global.html#toggleTheme">toggleTheme</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#addClipboardList">addClipboardList</a></li><li><a href="global.html#addClipboardListItem">addClipboardListItem</a></li><li><a href="global.html#clear_all_btn">clear_all_btn</a></li><li><a href="global.html#convertContentForClipboard">convertContentForClipboard</a></li><li><a href="global.html#createButtonListeners">createButtonListeners</a></li><li><a href="global.html#download">download</a></li><li><a href="global.html#getClipboardText">getClipboardText</a></li><li><a href="global.html#getContentFromClipboard">getContentFromClipboard</a></li><li><a href="global.html#getTheme">getTheme</a></li><li><a href="global.html#getThumbnail">getThumbnail</a></li><li><a href="global.html#onContextMenuClick">onContextMenuClick</a></li><li><a href="global.html#onCopy">onCopy</a></li><li><a href="global.html#onCopyMessage">onCopyMessage</a></li><li><a href="global.html#readClipboardText">readClipboardText</a></li><li><a href="global.html#saveClipboardList">saveClipboardList</a></li><li><a href="global.html#sb">sb</a></li><li><a href="global.html#setImageFromLink">setImageFromLink</a></li><li><a href="global.html#setSyncVariables">setSyncVariables</a></li><li><a href="global.html#toggleExtension">toggleExtension</a></li><li><a href="global.html#toggleTheme">toggleTheme</a></li></ul>
 </nav>
 
 <div id="main">
@@ -114,6 +114,156 @@
 
     
 
+    
+        <h3 class="subsection-title">Members</h3>
+
+        
+            
+<h4 class="name" id="clear_all_btn"><span class="type-signature"></span>clear_all_btn<span class="type-signature"></span></h4>
+
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="popup.js.html">popup.js</a>, <a href="popup.js.html#line338">line 338</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    <p>Clears all the elements in clipboard
+This function clears the clipboard list displayed in the extention and the chrome storage</p>
+<p><strong>Input</strong></p>
+<ul>
+<li>This function is executed when the user clicks on Clear all button</li>
+</ul>
+<p><strong>Output</strong></p>
+<ul>
+<li>the chrome storage is cleared</li>
+<li>All the copied text is removed from the user interface.</li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="sb"><span class="type-signature"></span>sb<span class="type-signature"></span></h4>
+
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="popup.js.html">popup.js</a>, <a href="popup.js.html#line306">line 306</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    <p>Reading the search string
+This function reads the text entered in the search bar</p>
+<p><strong>Input</strong></p>
+<ul>
+<li>This function is executed when the user inputs any data in the search bar</li>
+</ul>
+<p><strong>Output</strong></p>
+<ul>
+<li>sets the search_str as the data entered in the search bar</li>
+<li>The flag is set to 1 if any data is entered in the search bar</li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+        
     
 
     
@@ -424,7 +574,7 @@ New data types should also be added here</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="popup.js.html">popup.js</a>, <a href="popup.js.html#line335">line 335</a>
+        <a href="popup.js.html">popup.js</a>, <a href="popup.js.html#line359">line 359</a>
     </li></ul></dd>
     
 
@@ -519,7 +669,7 @@ New data types should also be added here</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="popup.js.html">popup.js</a>, <a href="popup.js.html#line484">line 484</a>
+        <a href="popup.js.html">popup.js</a>, <a href="popup.js.html#line508">line 508</a>
     </li></ul></dd>
     
 
@@ -811,7 +961,7 @@ and https://github.com/jeske/BBCodePaste/blob/master/bbcodepaste.js</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="popup.js.html">popup.js</a>, <a href="popup.js.html#line423">line 423</a>
+        <a href="popup.js.html">popup.js</a>, <a href="popup.js.html#line447">line 447</a>
     </li></ul></dd>
     
 
@@ -1394,7 +1544,7 @@ Conditions to add:</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="popup.js.html">popup.js</a>, <a href="popup.js.html#line456">line 456</a>
+        <a href="popup.js.html">popup.js</a>, <a href="popup.js.html#line480">line 480</a>
     </li></ul></dd>
     
 
@@ -1689,7 +1839,7 @@ List of variables:</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="popup.js.html">popup.js</a>, <a href="popup.js.html#line357">line 357</a>
+        <a href="popup.js.html">popup.js</a>, <a href="popup.js.html#line381">line 381</a>
     </li></ul></dd>
     
 
@@ -1784,7 +1934,7 @@ List of variables:</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="popup.js.html">popup.js</a>, <a href="popup.js.html#line386">line 386</a>
+        <a href="popup.js.html">popup.js</a>, <a href="popup.js.html#line410">line 410</a>
     </li></ul></dd>
     
 
@@ -1882,7 +2032,7 @@ List of variables:</p>
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.4</a> on Thu Nov 04 2021 02:35:44 GMT+0000 (Coordinated Universal Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.4</a> on Thu Nov 04 2021 02:41:22 GMT+0000 (Coordinated Universal Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>

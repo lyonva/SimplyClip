@@ -27,7 +27,7 @@
 
 <nav >
     
-    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#addClipboardList">addClipboardList</a></li><li><a href="global.html#addClipboardListItem">addClipboardListItem</a></li><li><a href="global.html#convertContentForClipboard">convertContentForClipboard</a></li><li><a href="global.html#createButtonListeners">createButtonListeners</a></li><li><a href="global.html#download">download</a></li><li><a href="global.html#getClipboardText">getClipboardText</a></li><li><a href="global.html#getContentFromClipboard">getContentFromClipboard</a></li><li><a href="global.html#getTheme">getTheme</a></li><li><a href="global.html#getThumbnail">getThumbnail</a></li><li><a href="global.html#onContextMenuClick">onContextMenuClick</a></li><li><a href="global.html#onCopy">onCopy</a></li><li><a href="global.html#onCopyMessage">onCopyMessage</a></li><li><a href="global.html#readClipboardText">readClipboardText</a></li><li><a href="global.html#saveClipboardList">saveClipboardList</a></li><li><a href="global.html#setImageFromLink">setImageFromLink</a></li><li><a href="global.html#setSyncVariables">setSyncVariables</a></li><li><a href="global.html#toggleExtension">toggleExtension</a></li><li><a href="global.html#toggleTheme">toggleTheme</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#addClipboardList">addClipboardList</a></li><li><a href="global.html#addClipboardListItem">addClipboardListItem</a></li><li><a href="global.html#clear_all_btn">clear_all_btn</a></li><li><a href="global.html#convertContentForClipboard">convertContentForClipboard</a></li><li><a href="global.html#createButtonListeners">createButtonListeners</a></li><li><a href="global.html#download">download</a></li><li><a href="global.html#getClipboardText">getClipboardText</a></li><li><a href="global.html#getContentFromClipboard">getContentFromClipboard</a></li><li><a href="global.html#getTheme">getTheme</a></li><li><a href="global.html#getThumbnail">getThumbnail</a></li><li><a href="global.html#onContextMenuClick">onContextMenuClick</a></li><li><a href="global.html#onCopy">onCopy</a></li><li><a href="global.html#onCopyMessage">onCopyMessage</a></li><li><a href="global.html#readClipboardText">readClipboardText</a></li><li><a href="global.html#saveClipboardList">saveClipboardList</a></li><li><a href="global.html#sb">sb</a></li><li><a href="global.html#setImageFromLink">setImageFromLink</a></li><li><a href="global.html#setSyncVariables">setSyncVariables</a></li><li><a href="global.html#toggleExtension">toggleExtension</a></li><li><a href="global.html#toggleTheme">toggleTheme</a></li></ul>
 </nav>
 
 <div id="main">
@@ -334,38 +334,62 @@ function convertContentForClipboard(content) {
     }
 }
 
-// Reading the search string
-let sb= document.getElementById('searchbar');
-sb.addEventListener('keyup', (event)=>{
-    let searchvalue = document.getElementById('searchbar').value.toLowerCase();
-    search_str = searchvalue;
-    if (!search_str == ""){
-        _flag = 1;
-        while (_clipboardList.firstChild) {
-        _clipboardList.removeChild(_clipboardList.lastChild);}
-        getClipboardText();
-    }
-    else {
-        _flag = 0
-        while (_clipboardList.firstChild) {
-            _clipboardList.removeChild(_clipboardList.lastChild);}
-            getClipboardText();
-    }
-})
+
+/**
+ * Reading the search string 
+ * This function reads the text entered in the search bar
+ * 
+ * **Input**
+ *  - This function is executed when the user inputs any data in the search bar
+ * 
+ * **Output**
+ *  - sets the search_str as the data entered in the search bar
+ *  - The flag is set to 1 if any data is entered in the search bar
+ */
+
+ let sb= document.getElementById('searchbar');
+ sb.addEventListener('keyup', (event)=>{
+     let searchvalue = document.getElementById('searchbar').value.toLowerCase();
+     search_str = searchvalue;
+     if (!search_str == ""){
+         _flag = 1;
+         while (_clipboardList.firstChild) {
+         _clipboardList.removeChild(_clipboardList.lastChild);}
+         getClipboardText();
+     }
+     else {
+         _flag = 0
+         while (_clipboardList.firstChild) {
+             _clipboardList.removeChild(_clipboardList.lastChild);}
+             getClipboardText();
+     }
+ })
 
 
-// Clears all the elements in clipboard
-let clear_all_btn = document.getElementById('clear_all_btn')
 
-clear_all_btn.addEventListener('click', (event) => {
-    while (_clipboardList.firstChild) {
-        _clipboardList.removeChild(_clipboardList.lastChild);
-    }
-    chrome.storage.sync.set({ "list": [] }, function () {
-        console.log("Cleared clipboard");
-    });
-    document.getElementById('empty-div').classList.remove('hide-div');
-});
+/**
+ * Clears all the elements in clipboard 
+ * This function clears the clipboard list displayed in the extention and the chrome storage
+ * 
+ * **Input**
+ *  - This function is executed when the user clicks on Clear all button
+ * 
+ * **Output**
+ *  - the chrome storage is cleared
+ *  - All the copied text is removed from the user interface.
+ */
+
+ let clear_all_btn = document.getElementById('clear_all_btn')
+ 
+ clear_all_btn.addEventListener('click', (event) => {
+     while (_clipboardList.firstChild) {
+         _clipboardList.removeChild(_clipboardList.lastChild);
+     }
+     chrome.storage.sync.set({ "list": [] }, function () {
+         console.log("Cleared clipboard");
+     });
+     document.getElementById('empty-div').classList.remove('hide-div');
+ });
 
 /**
  * Adds event listeners to the toggle extension, toggle theme, and save file buttons
@@ -577,7 +601,7 @@ setIcon();</code></pre>
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.4</a> on Thu Nov 04 2021 02:35:44 GMT+0000 (Coordinated Universal Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.4</a> on Thu Nov 04 2021 02:41:22 GMT+0000 (Coordinated Universal Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>
