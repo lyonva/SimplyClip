@@ -48,10 +48,10 @@ Looking for a particular snippet you copied? We got you covered! Search within o
 
 Delete all the content added to the clipboard with a single button press. You could also delete individual text snippets added to the clipboard.
 
-<div style="display:flex; padding: 10px 0; text-align: center;">
+<p style="display:flex; padding: 10px 0; text-align: center;">
     <img src="docs/images/GIFs/Delete%20all.gif" style="padding:50px; width: 350px"/>
     <img src="docs/images/GIFs/Delete%20one.gif" style="padding:50px; width: 350px"/>
-</div>
+</p>
 
 <!-- <p align="center">
     <img src="docs/images/GIFs/Delete%20one.gif"/>
