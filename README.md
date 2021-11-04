@@ -131,6 +131,12 @@ Functionality that enables clipboard list to be downloaded in multiple file form
 
 Keyboard shortcuts should allow you to paste which item from the clipboard you want from the top 10 elements. (Work already in progress on 'rramakr' branch).
 
+### **Why Isn't It Where I Want**
+
+Enanble the extension to work on multiple browsers such as Firefox, Safari, etc...
+        
+### **Gimme Everything**
+
 ## Contributors
 
 ---
