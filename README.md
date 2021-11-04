@@ -49,15 +49,16 @@ Looking for a particular snippet you copied? We got you covered! Search within o
 ### Destroy It All
 
 Delete all the content added to the clipboard with a single button press. You could also delete individual text snippets added to the clipboard.
-<!-- <p align="center">
-    <img src="docs/images/GIFs/Delete%20all.gif"/>    
+<p float="left">
+    <img src="docs/images/GIFs/Delete%20all.gif" width="350px" />
+    <img src="docs/images/GIFs/Delete%20one.gif" width="350px"/> 
 </p>
     
- <p align="center">
+<!-- <p align="center">
     <img src="docs/images/GIFs/Delete%20one.gif"/>    
 </p> -->
-![DeleteAll](docs/images/GIFs/Delete%20all.gif)
-![DeleteOne](docs/images/GIFs/Delete%20one.gif)
+<!-- ![DeleteAll](docs/images/GIFs/Delete%20all.gif)
+![DeleteOne](docs/images/GIFs/Delete%20one.gif) -->
 <hr>
 ### Edit Text
 
