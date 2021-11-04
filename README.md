@@ -45,8 +45,10 @@ SimplyClip allows you to select text, links and images and adds them to the clip
 
 Looking for a particular snippet you copied? We got you covered! Search within our search bar and find the one you are looking for.
     
-![Search](docs/images/GIFs/Search.gif)
-
+<p align="center">
+    <img src="docs/images/GIFs/Search.gif"/>
+</p>
+    
 ### Destroy It All
 
 Delete all the content added to the clipboard with a single button press. You could also delete individual text snippets added to the clipboard.
