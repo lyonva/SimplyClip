@@ -303,26 +303,23 @@ function convertContentForClipboard(content) {
  *  - The flag is set to 1 if any data is entered in the search bar
  */
 
-function readingsearchstr() {
-    let searchvalue = document.getElementById('searchbar').value.toLowerCase();
-    search_str = searchvalue;
-    if (!search_str == ""){
-        _flag = 1;
-        while (_clipboardList.firstChild) {
-        _clipboardList.removeChild(_clipboardList.lastChild);}
-        getClipboardText();
-    }
-    else {
-        _flag = 0
-        while (_clipboardList.firstChild) {
-            _clipboardList.removeChild(_clipboardList.lastChild);}
-            getClipboardText();
-    }
-
-}
-
-document.getElementById('searchbar').addEventListener('keyup', (event)=> readingsearchstr())
-
+ let sb= document.getElementById('searchbar');
+ sb.addEventListener('keyup', (event)=>{
+     let searchvalue = document.getElementById('searchbar').value.toLowerCase();
+     search_str = searchvalue;
+     if (!search_str == ""){
+         _flag = 1;
+         while (_clipboardList.firstChild) {
+         _clipboardList.removeChild(_clipboardList.lastChild);}
+         getClipboardText();
+     }
+     else {
+         _flag = 0
+         while (_clipboardList.firstChild) {
+             _clipboardList.removeChild(_clipboardList.lastChild);}
+             getClipboardText();
+     }
+ })
 
 
 
@@ -338,21 +335,17 @@ document.getElementById('searchbar').addEventListener('keyup', (event)=> reading
  *  - All the copied text is removed from the user interface.
  */
 
-function clearall() {
-    while (_clipboardList.firstChild) {
-        _clipboardList.removeChild(_clipboardList.lastChild);
-    }
-    chrome.storage.sync.set({ "list": [] }, function () {
-        console.log("Cleared clipboard");
-    });
-    document.getElementById('empty-div').classList.remove('hide-div');
-
-}
-
-document.getElementById('clear_all_btn').addEventListener('click', (event) => clearall())
-
-
-
+ let clear_all_btn = document.getElementById('clear_all_btn')
+ 
+ clear_all_btn.addEventListener('click', (event) => {
+     while (_clipboardList.firstChild) {
+         _clipboardList.removeChild(_clipboardList.lastChild);
+     }
+     chrome.storage.sync.set({ "list": [] }, function () {
+         console.log("Cleared clipboard");
+     });
+     document.getElementById('empty-div').classList.remove('hide-div');
+ });
 
 /**
  * Adds event listeners to the toggle extension, toggle theme, and save file buttons
