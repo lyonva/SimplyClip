@@ -1,6 +1,6 @@
 ![icon](https://github.com/lyonva/SimplyClip/blob/main/src/images/paper-clip_128.png)
  
-[![DOI](https://zenodo.org/badge/417197078.svg)](https://zenodo.org/badge/latestdoi/417197078)
+
 
 # SimplyClip
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -12,6 +12,7 @@
 ![GitHub contributors](https://img.shields.io/github/contributors/lyonva/SimplyClip)
 ![GitHub pull requests](https://img.shields.io/github/issues-pr/lyonva/SimplyClip)
 [![Build status](https://github.com/lyonva/SimplyClip/actions/workflows/create-docs.yml/badge.svg)](https://github.com/lyonva/SimplyClip/actions/workflows/create-docs.yml/badge.svg)
+[![DOI](https://zenodo.org/badge/417197078.svg)](https://zenodo.org/badge/latestdoi/417197078)
 
 
 <placeholder builds>
@@ -116,8 +117,9 @@ Check out the [online documentation](https://lyonva.github.io/SimplyClip/) if yo
 
 ## Releases
 
--   [v1](https://github.com/lalit10/SimplyClip/releases/tag/1.0.0)
--   Latest: [v2](insert link to our release or chrome store)
+- [v1.0](https://github.com/lalit10/SimplyClip/releases/tag/1.0.0)
+- [v1.1](insert link to our release or chrome store)
+- Latest:[v2.0](link to our release or chrome store)
 
 ## Future Features
 
