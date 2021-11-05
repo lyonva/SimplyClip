@@ -1,1 +1,4 @@
 /GIFs
+.vscode
+.pytest_cache
+/src/test/__pycache__
