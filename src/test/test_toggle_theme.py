@@ -11,10 +11,10 @@ import time
 
 def test_theme_button():
     """
-        Function:
-            test_theme_button
-        Description:
-            Tests that the theme is properly switched
+    Function:
+        test_theme_button
+    Description:
+        Tests that the theme is properly switched
     """
     print(sys.path)
     driver = get_driver()
@@ -38,3 +38,5 @@ def test_theme_button():
         current_theme = current_theme[-1]
         time.sleep(0.2)
         assert current_theme == "light.css"
+
+    driver.close()

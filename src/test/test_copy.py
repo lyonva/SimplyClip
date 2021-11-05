@@ -35,3 +35,5 @@ def test_copy():
         driver.get(app_popup_page)
         # time.sleep(2)
         assert "hide-div" in driver.find_element_by_id("empty-div").get_attribute("class")
+
+        driver.close()
