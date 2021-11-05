@@ -32,6 +32,8 @@ def test_button_icon():
         toggle_button.click()
         time.sleep(0.2)
         assert toggle_icon.get_attribute("class") == "icon_on"
+    
+    driver.close()
 
 def test_toggle_on():
     """
@@ -63,6 +65,8 @@ def test_toggle_on():
 
     assert "hide-div" in driver.find_element_by_id("empty-div").get_attribute("class")
 
+    driver.close()
+
 def test_toggle_off():
     """
         Function:
@@ -90,6 +94,8 @@ def test_toggle_off():
     time.sleep(0.1)
 
     assert "hide-div" not in driver.find_element_by_id("empty-div").get_attribute("class")
+
+    driver.close()
 
 def test_toggle_off3():
     """
