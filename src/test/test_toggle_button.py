@@ -4,8 +4,11 @@ import sys, os
 os.chdir(os.path.dirname(__file__))
 # sys.path.append(os.path.realpath(os.path.dirname(__file__)+"/src/test"))
 
-from utils_test import get_driver
+from utils_test import get_driver, app_popup_page
 import time
+
+from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.common.keys import Keys
 
 def test_button_icon():
     """
@@ -13,12 +16,7 @@ def test_button_icon():
             test_button_icon
         Description:
             Test that the toggle icon changes after a click.
-        Input:
-            None
-        Output:
-            driver - A driver object
     """
-    print( sys.path )
     driver = get_driver()
 
     toggle_button = driver.find_element_by_id("toggle-button")
@@ -36,4 +34,26 @@ def test_button_icon():
         assert toggle_icon.get_attribute("class") == "icon_on"
 
 def test_toggle_off():
-    pass
+    """
+        Function:
+            test_toggle_off
+        Description:
+            Test that the toggle disables the extension.
+    """
+    driver = get_driver()
+
+    # Turn the extension off
+    toggle_button = driver.find_element_by_id("toggle-button")
+    # toggle_button.click()
+
+    # Navigate to a page and copy text
+    driver.get(f"file://{os.path.dirname(__file__)}/testpage.html")
+    text = driver.find_element_by_id("text1")
+    ActionChains(driver).move_to_element_with_offset(text,0,0).click().key_down(Keys.SHIFT).move_to_element_with_offset(text,30,40).click().key_up(Keys.SHIFT).perform()
+    ActionChains(driver).key_down(Keys.CONTROL).send_keys('c').key_up(Keys.CONTROL).perform()
+    time.sleep(5)
+
+    # Go pack to the page
+    driver.get(app_popup_page)
+    time.sleep(3)
+
