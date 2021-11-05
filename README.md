@@ -13,6 +13,7 @@
 ![GitHub contributors](https://img.shields.io/github/contributors/lyonva/SimplyClip)
 ![GitHub pull requests](https://img.shields.io/github/issues-pr/lyonva/SimplyClip)
 [![Build status](https://github.com/lyonva/SimplyClip/actions/workflows/create-docs.yml/badge.svg)](https://github.com/lyonva/SimplyClip/actions/workflows/create-docs.yml/badge.svg)
+[![Test cases](https://github.com/lyonva/SimplyClip/actions/workflows/test-cases.yml/badge.svg)](https://github.com/lyonva/SimplyClip/actions/workflows/test-cases.yml/badge.svg)
 [![DOI](https://zenodo.org/badge/417197078.svg)](https://zenodo.org/badge/latestdoi/417197078)
 
 > Don’t work longer hours, instead make the hours worth more – focus your efforts to get more done in the same period. - Henry Ford
