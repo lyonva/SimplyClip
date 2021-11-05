@@ -48,7 +48,7 @@ def test_copy_link():
 
         assert "hide-div" in driver.find_element_by_id("empty-div").get_attribute("class")
 
-    driver.close()
+        driver.close()
 
 def test_copy_image():
     """
@@ -87,4 +87,4 @@ def test_copy_image():
 
         assert "hide-div" in driver.find_element_by_id("empty-div").get_attribute("class")
 
-    driver.close()
+        driver.close()
