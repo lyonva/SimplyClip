@@ -182,6 +182,7 @@ Enable the extension to work in sync with the system clipboard so that the conte
 -   Recognizing hyperlink copying.
 -   Recognizing a copy on the user context menu.
 -   Fixing multiple bugs.
+-   There were no test cases, now test cases have been added
 -   There was basically no documentation in the code at all, now all of the code is documented.
 -   We had to rework the plug-in. Previously everything was done using script injection. Now we use message passing to minimize invasion.
 
