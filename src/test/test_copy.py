@@ -11,6 +11,12 @@ from selenium.webdriver.common.keys import Keys
 
 
 def test_copy():
+    """
+    Function:
+        test_copy
+    Description:
+        Tests that the copy functionality works
+    """
     print(sys.path)
 
     for i in range(5):

@@ -10,6 +10,12 @@ import time
 
 
 def test_theme_button():
+    """
+        Function:
+            test_theme_button
+        Description:
+            Tests that the theme is properly switched
+    """
     print(sys.path)
     driver = get_driver()
 
