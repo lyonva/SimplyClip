@@ -17,10 +17,6 @@ def test_copy_link():
             test_copy_link
         Description:
             Test if copy link context menu works
-        Input:
-            None
-        Output:
-            driver - A driver object
     """
 
     for i in range(3):
@@ -28,6 +24,45 @@ def test_copy_link():
         assert "hide-div" not in driver.find_element_by_id("empty-div").get_attribute("class")
         driver.get(f"file://{os.path.dirname(__file__)}/testpage.html")
         link = driver.find_element_by_id("link1")
+        action = ActionChains(driver)
+        action.context_click(link).perform()
+        time.sleep(0.2)
+        pyautogui.press('down')
+        time.sleep(0.2)
+        pyautogui.press('down')
+        time.sleep(0.2)
+        pyautogui.press('down')
+        time.sleep(0.2)
+        pyautogui.press('down')
+        time.sleep(0.2)
+        pyautogui.press('down')
+        time.sleep(0.2)
+        pyautogui.press('down')
+        time.sleep(0.2)
+        pyautogui.press('enter')
+        time.sleep(0.2)
+
+        # Go back to the page
+        driver.get(app_popup_page)
+        # time.sleep(3)
+
+        assert "hide-div" in driver.find_element_by_id("empty-div").get_attribute("class")
+
+    driver.close()
+
+def test_copy_image():
+    """
+        Function:
+            test_copy_image
+        Description:
+            Test if copy image context menu works
+    """
+
+    for i in range(3):
+        driver = get_driver()
+        assert "hide-div" not in driver.find_element_by_id("empty-div").get_attribute("class")
+        driver.get(f"file://{os.path.dirname(__file__)}/testpage.html")
+        link = driver.find_element_by_id("image1")
         action = ActionChains(driver)
         action.context_click(link).perform()
         time.sleep(0.2)
