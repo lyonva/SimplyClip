@@ -39,6 +39,7 @@ def test_toggle_on():
             test_toggle_off
         Description:
             Test that the toggle disables the extension.
+            Check that it works when extension is re-enabled.
     """
     driver = get_driver()
 
@@ -51,13 +52,16 @@ def test_toggle_on():
     # Navigate to a page and copy text
     driver.get(f"file://{os.path.dirname(__file__)}/testpage.html")
     text = driver.find_element_by_id("text1")
-    ActionChains(driver).move_to_element_with_offset(text,0,0).click().key_down(Keys.SHIFT).move_to_element_with_offset(text,0,40).click().key_up(Keys.SHIFT).perform()
+    ActionChains(driver).move_to_element_with_offset(text,0,0).click().key_down(Keys.SHIFT).move_to_element_with_offset(text,100,0).click().key_up(Keys.SHIFT).perform()
+    time.sleep(0.1)
     ActionChains(driver).key_down(get_control_key()).send_keys('c').key_up(get_control_key()).perform()
-    # time.sleep(5)
+    time.sleep(0.1)
 
     # Go pack to the page
     driver.get(app_popup_page)
-    time.sleep(3)
+    time.sleep(0.1)
+
+    assert "hide-div" in driver.find_element_by_id("empty-div").get_attribute("class")
 
 def test_toggle_off():
     """
@@ -65,21 +69,25 @@ def test_toggle_off():
             test_toggle_off
         Description:
             Test that the toggle disables the extension.
+            Check that it does not work when extension is disabled.
     """
     driver = get_driver()
 
     # Turn the extension off
     toggle_button = driver.find_element_by_id("toggle-button")
-    # toggle_button.click()
+    toggle_button.click()
 
     # Navigate to a page and copy text
     driver.get(f"file://{os.path.dirname(__file__)}/testpage.html")
     text = driver.find_element_by_id("text1")
-    ActionChains(driver).move_to_element_with_offset(text,0,0).click().key_down(Keys.SHIFT).move_to_element_with_offset(text,0,40).click().key_up(Keys.SHIFT).perform()
+    ActionChains(driver).move_to_element_with_offset(text,0,0).click().key_down(Keys.SHIFT).move_to_element_with_offset(text,100,0).click().key_up(Keys.SHIFT).perform()
+    time.sleep(0.1)
     ActionChains(driver).key_down(get_control_key()).send_keys('c').key_up(get_control_key()).perform()
-    # time.sleep(5)
+    time.sleep(0.1)
 
     # Go pack to the page
     driver.get(app_popup_page)
-    time.sleep(3)
+    time.sleep(0.1)
+
+    assert "hide-div" not in driver.find_element_by_id("empty-div").get_attribute("class")
 
