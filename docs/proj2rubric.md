@@ -16,11 +16,11 @@
 |.5|Use of code formatters. |The team used VS Code to format code.|
 |.5|Use of style checkers |The team used VS Code to check code style.|
 |.5|Docs: short video, animated, hosted on your repo. That convinces people why they want to work on your code. |Check [README.md](https://github.com/lyonva/SimplyClip#readme)|
-|.5|test cases exist  |Tests are not feasible with this project.|
-|.2|Use of code coverage  |Code coverage not feasible with this project.|
+|.5|test cases exist|Check out the [test directory](https://github.com/lyonva/SimplyClip/tree/main/src/test)|
+|.2|Use of code coverage  |Code coverage not feasible with this project, as the code being run is compressed.|
 |.5|other automated analysis tools  |Documentation is automated, check the [GH action](https://github.com/lyonva/SimplyClip/blob/main/.github/workflows/create-docs.yml), docs are being pushed into the [gh-pages](https://github.com/lyonva/SimplyClip/tree/gh-pages) branch and available in [GH pages](https://lyonva.github.io/SimplyClip/)|
 |.4|test cases:.a large proportion of the issues related to handling failing cases. |Created [bug issues and fixed bugs](https://github.com/lyonva/SimplyClip/issues?q=label%3Abug+is%3Aclosed).|
-|.5|test cases are routinely executed |E.g. travis-com.com or github actions or something|
+|.5|test cases are routinely executed |Test cases are executed [as a github action](https://github.com/lyonva/SimplyClip/actions)|
 |1|Documentation describing how this version improves on the older version |Check [README.md](https://github.com/lyonva/SimplyClip#readme)|
 |3|This version is a little(1), some(2), much(3) improved on the last version.|Significant features have been added to extension, available on our [README.md](https://github.com/lyonva/SimplyClip#improvements-of-this-version-compared-to-the-previous-one)|
 |15.5| Total|
